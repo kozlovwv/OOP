@@ -1,5 +1,7 @@
 package ru.nsu.kozlov;
 
+/** class with realization of heapsort
+ */
 public class Main {
 
     /** array sorting based on binary heap.
@@ -90,7 +92,7 @@ public class Main {
     }
 
     /** main method.
-     * 
+     *
      * @param args arguments received from the terminal
      */
     public static void main(String[] args) {
