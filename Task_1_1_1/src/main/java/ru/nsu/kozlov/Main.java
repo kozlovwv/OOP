@@ -2,7 +2,7 @@ package ru.nsu.kozlov;
 
 public class Main {
 
-    /**
+    /** array sorting based on binary heap.
      * @param arr to sort
      * @return sorted array
      */
@@ -26,7 +26,7 @@ public class Main {
         return arr;
     }
 
-    /**
+    /** sifting an element from bottom to top.
      * @param heap to sift
      * @param k index of element of heap to sift
      */
@@ -44,7 +44,7 @@ public class Main {
         }
     }
 
-    /**
+    /** sifting an element from top to bottom.
      * @param heap to sift
      * @param indexOfLast index of last element of heap
      */
@@ -72,7 +72,7 @@ public class Main {
         }
     }
 
-    /**
+    /** getting a min element of the heap.
      * @param heap heap
      * @param indexOfLast index of last element of heap
      * @return the min element of heap (the top element of heap)
@@ -85,7 +85,7 @@ public class Main {
         return min;
     }
 
-    /**
+    /** main method.
      * @param args arguments received from the terminal
      */
     public static void main(String[] args) {
