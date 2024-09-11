@@ -3,8 +3,10 @@ package ru.nsu.kozlov;
 public class Main {
 
     static int[] heapsort(int[] arr) {
-        int len, index_of_last;
-        len = index_of_last = arr.length;
+        int len;
+        int indexOfLast;
+
+        len = indexOfLast = arr.length;
         int[] heap = new int[len + 1];
 
         for (int i = 1; i <= len; i++) {
@@ -13,8 +15,8 @@ public class Main {
         }
 
         for (int i = 0; i < len; i++) {
-            arr[i] = extractMin(heap, index_of_last);
-            index_of_last--;
+            arr[i] = extractMin(heap, indexOfLast);
+            indexOfLast--;
         }
 
         return arr;
@@ -59,11 +61,11 @@ public class Main {
         }
     }
 
-    static int extractMin(int[] heap, int index_of_last) {
+    static int extractMin(int[] heap, int indexOfLast) {
         int min = heap[1];
-        heap[1] = heap[index_of_last];
-        index_of_last--;
-        siftDown(heap, index_of_last);
+        heap[1] = heap[indexOfLast];
+        indexOfLast--;
+        siftDown(heap, indexOfLast);
         return min;
     }
 
