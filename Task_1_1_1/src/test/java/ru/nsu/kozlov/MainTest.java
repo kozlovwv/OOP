@@ -27,4 +27,10 @@ class MainTest {
         int[] arr = new int[] {-97, -79, -79, -75, -72, -71, -12, -10, -6, -3, 1, 36, 39, 47, 50, 63, 71, 79, 82, 90};
         assertArrayEquals(arr, Main.heapsort(arr));
     }
+
+    @Test
+    void TestForMain() {
+        Main.main(null);
+        assertTrue(true);
+    }
 }
