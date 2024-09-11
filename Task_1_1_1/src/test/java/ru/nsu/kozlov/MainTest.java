@@ -6,11 +6,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 class MainTest {
+    /**
+     * sample test
+     */
     @Test
     void sampleTest() {
         assertArrayEquals(new int[] {1, 2, 3, 4, 5}, Main.heapsort(new int[] {5, 4, 3, 2, 1}));
     }
 
+    /**
+     * test with negative numbers in array
+     */
     @Test
     void testWithNegativeData() {
         int[] arr = new int[] {88, -16, -100, 58, -91, 38, -83, -2, -81, -4,
@@ -18,6 +24,9 @@ class MainTest {
         assertArrayEquals(arr, Main.heapsort(arr));
     }
 
+    /**
+     * test with max and min int value
+     */
     @Test
     void testWithBigData() {
         int[] arr = new int[] {1384281605, -321243027, 2147483647, 1484361240, -2147483648,
@@ -27,6 +36,9 @@ class MainTest {
         assertArrayEquals(arr, Main.heapsort(arr));
     }
 
+    /**
+     * test with sorted array
+     */
     @Test
     void testWithSortedArray() {
         int[] arr = new int[] {-97, -79, -79, -75, -72, -71, -12, -10, -6,
@@ -34,6 +46,9 @@ class MainTest {
         assertArrayEquals(arr, Main.heapsort(arr));
     }
 
+    /**
+     * test main method
+     */
     @Test
     void testForMain() {
         Main.main(null);

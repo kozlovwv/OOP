@@ -2,6 +2,10 @@ package ru.nsu.kozlov;
 
 public class Main {
 
+    /**
+     * @param arr to sort
+     * @return sorted array
+     */
     static int[] heapsort(int[] arr) {
         int len;
         int indexOfLast;
@@ -22,6 +26,10 @@ public class Main {
         return arr;
     }
 
+    /**
+     * @param heap to sift
+     * @param k index of element of heap to sift
+     */
     static void siftUp(int[] heap, int k) {
         int tmp;
         while (k > 1) {
@@ -36,15 +44,19 @@ public class Main {
         }
     }
 
-    static void siftDown(int[] heap, int n) {
+    /**
+     * @param heap to sift
+     * @param indexOfLast index of last element of heap
+     */
+    static void siftDown(int[] heap, int indexOfLast) {
         int tmp;
         int v;
         int k = 1;
 
-        while (2 * k <= n) {
+        while (2 * k <= indexOfLast) {
             v = 2 * k;
 
-            if ((2 * k + 1 <= n) && (heap[2 * k + 1] < heap[2 * k])) {
+            if ((2 * k + 1 <= indexOfLast) && (heap[2 * k + 1] < heap[2 * k])) {
                 v++;
             }
 
@@ -60,6 +72,11 @@ public class Main {
         }
     }
 
+    /**
+     * @param heap heap
+     * @param indexOfLast index of last element of heap
+     * @return the min element of heap (the top element of heap)
+     */
     static int extractMin(int[] heap, int indexOfLast) {
         int min = heap[1];
         heap[1] = heap[indexOfLast];
@@ -68,8 +85,11 @@ public class Main {
         return min;
     }
 
+    /**
+     * @param args arguments received from the terminal
+     */
     public static void main(String[] args) {
-        for (int el: heapsort(new int[] {5, 4, 3, 2, 1})) {
+        for (int el : heapsort(new int[] {5, 4, 3, 2, 1})) {
             System.out.print(el + " ");
         }
         System.out.print('\n');
