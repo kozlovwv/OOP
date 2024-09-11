@@ -25,26 +25,26 @@ public class Main {
     static void siftUp(int[] heap, int k) {
         int tmp;
         while (k > 1) {
-            if (heap[k] < heap[k/2]) {
+            if (heap[k] < heap[k / 2]) {
                 tmp = heap[k];
-                heap[k] = heap[k/2];
-                heap[k/2] = tmp;
+                heap[k] = heap[k / 2];
+                heap[k / 2] = tmp;
                 k = k / 2;
-            }
-            else {
+            } else {
                 break;
             }
         }
     }
 
-    static void siftDown(int[] heap, int N) {
-        int tmp, v;
+    static void siftDown(int[] heap, int n) {
+        int tmp;
+        int v;
         int k = 1;
 
-        while (2*k <= N) {
-            v = 2*k;
+        while (2 * k <= n) {
+            v = 2 * k;
 
-            if ((2*k + 1 <= N) && (heap[2*k + 1] < heap[2*k])) {
+            if ((2 * k + 1 <= n) && (heap[2 * k + 1] < heap[2 * k])) {
                 v++;
             }
 
@@ -54,8 +54,7 @@ public class Main {
                 heap[v] = tmp;
 
                 k = v;
-            }
-            else {
+            } else {
                 break;
             }
         }
