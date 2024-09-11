@@ -1,6 +1,6 @@
 package ru.nsu.kozlov;
 
-/** class with realization of heapsort
+/** class with realization of heapsort.
  */
 public class Main {
 
