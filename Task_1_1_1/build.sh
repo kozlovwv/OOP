@@ -2,7 +2,7 @@ javac -d bin -cp /home/kirill/.gradle/caches/modules-2/files-2.1/org.junit.jupit
 touch Manifest.txt
 echo -e "Manifest-Version: 1.0\nMain-Class: ru.nsu.kozlov.Main\nclass-Path: bin/ru/nsu/kozlov" > Manifest.txt
 jar cfm MyLab.jar Manifest.txt -C bin .
-#java -jar MyLab.jar
+java -jar MyLab.jar
 javadoc -d bin/docs -sourcepath src/main/java ru.nsu.kozlov
 
 echo "Pobeda!"
