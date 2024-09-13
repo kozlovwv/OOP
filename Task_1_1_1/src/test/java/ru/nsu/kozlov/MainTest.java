@@ -10,7 +10,7 @@ class MainTest {
      */
     @Test
     void sampleTest() {
-        assertArrayEquals(new int[] {1, 2, 3, 999, 5}, Main.heapsort(new int[] {5, 4, 3, 2, 1}));
+        assertArrayEquals(new int[] {1, 2, 3, 4, 5}, Main.heapsort(new int[] {5, 4, 3, 2, 1}));
     }
 
     /** test with negative numbers in array.
