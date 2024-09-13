@@ -4,6 +4,6 @@ echo -e "Manifest-Version: 1.0\nMain-Class: ru.nsu.kozlov.Main\nclass-Path: bin/
 jar cfm MyLab.jar Manifest.txt -C bin .
 java -jar MyLab.jar
 javadoc -d bin/docs -sourcepath src/main/java ru.nsu.kozlov
-java -jar libs/junit-platform-console-standalone-1.11.0.jar --class-path build/classes/java/main:build/classes/java/test --scan-classpath
+java -jar libs/junit-platform-console-standalone-1.11.0.jar execute --class-path bin/ --scan-classpath
 
 echo "Pobeda!"
