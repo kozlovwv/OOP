@@ -25,7 +25,7 @@ public class Deck {
             }
         }
         Collections.shuffle((LinkedList<Card>) deck);
-        System.out.println("Заведена новая колода карт!");
+        System.out.println("Новая колода карт!");
     }
 
     Card getCard() {
@@ -49,6 +49,6 @@ public class Deck {
             }
         }
         Collections.shuffle((LinkedList<Card>) deck);
-        System.out.println("Заведена новая колода карт!\n");
+        System.out.println("Новая колода карт!\n");
     }
 }

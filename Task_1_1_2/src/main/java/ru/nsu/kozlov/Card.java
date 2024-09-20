@@ -12,6 +12,6 @@ public class Card {
     }
 
     void print() {
-        System.out.print(this.rank + " " + this.suit + " (" + this.score + ")");
+        System.out.print(rank + " " + suit + " (" + score + ")");
     }
 }
