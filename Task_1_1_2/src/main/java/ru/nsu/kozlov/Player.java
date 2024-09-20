@@ -3,10 +3,13 @@ package ru.nsu.kozlov;
 import java.util.LinkedList;
 
 public class Player {
-    LinkedList<Card> cards = new LinkedList<Card>();
+    private final LinkedList<Card> cards = new LinkedList<Card>();
 
-    void addCard(Card card) {
-        cards.add(card);
+    void addCard(Deck deck) {
+        if (deck.isEmpty()) {
+            deck.remakeDeck();
+        }
+        cards.add(deck.getCard());
     }
 
     void printCards() {
@@ -26,11 +29,36 @@ public class Player {
         System.out.print("] --> " + totalScore + "\n");
     }
 
+    void printCardsD() {
+        System.out.print("[");
+        cards.getFirst().print();
+        System.out.print(", <закрытая карта>]\n");
+    }
+
     int getTotalScore () {
         int total = 0;
+
         for (Card card : cards) {
             total += card.score;
         }
+
+        if(total > 21) {
+            for (Card card : cards) {
+                if(card.rank.equals("Туз") && (card.score == 11)) {
+                    card.score -= 10;
+                    total -= 10;
+                }
+            }
+        }
+
         return total;
+    }
+
+    Card checkLast() {
+        return cards.getLast();
+    }
+
+    void clear() {
+        cards.clear();
     }
 }
