@@ -3,16 +3,16 @@ package ru.nsu.kozlov;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+//import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+//import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class MainTest {
+public class GameTest {
 
 //    @Test
-//    void testForMain() {
+//    void testPlay() {
 //    ????????????????????????????????????????????????????????????
 //    }
 
@@ -23,7 +23,7 @@ public class MainTest {
 
         int plS = 10;
         int dlS = 5;
-        Main.printScores(plS, dlS);
+        Game.printScores(plS, dlS);
         String consoleOutput = outputStream.toString();
         assertEquals("Счет " + plS + ":" + dlS + " в вашу пользу\n", consoleOutput);
 
@@ -37,7 +37,7 @@ public class MainTest {
 
         int plS = 20;
         int dlS = 20;
-        Main.printScores(plS, dlS);
+        Game.printScores(plS, dlS);
         String consoleOutput = outputStream.toString();
         assertEquals("Счет " + plS + ":" + dlS + "\n", consoleOutput);
 
@@ -51,7 +51,7 @@ public class MainTest {
 
         int plS = 10;
         int dlS = 20;
-        Main.printScores(plS, dlS);
+        Game.printScores(plS, dlS);
         String consoleOutput = outputStream.toString();
         assertEquals("Счет " + plS + ":" + dlS + " в пользу дилера\n", consoleOutput);
 
