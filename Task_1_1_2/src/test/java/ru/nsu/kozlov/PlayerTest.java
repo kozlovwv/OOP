@@ -47,7 +47,8 @@ public class PlayerTest {
         player.printCards();
 
         String consoleOutput = outputStream.toString();
-        assertEquals("[Валет Черви (10), Дама Пики (10), Король Пики (10)] --> 30\n", consoleOutput);
+        assertEquals("[Валет Черви (10), Дама Пики (10), Король Пики (10)] --> 30\n",
+                     consoleOutput);
 
         System.setOut(System.out);
     }

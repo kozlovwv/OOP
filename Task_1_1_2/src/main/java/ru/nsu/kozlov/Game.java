@@ -57,10 +57,11 @@ public class Game {
                     printScores(playerScore, dealerScore);
                 }
             } else {
-                System.out.println("\nВаш ход\n-------\nВведите “1”, чтобы взять карту, и “0”, чтобы остановиться .");
+                System.out.println("\nВаш ход\n-------\nВведите “1”, " +
+                                   "чтобы взять карту, и “0”, чтобы остановиться .");
 
                 playerMove = scanner.next();
-                while(!(playerMove.equals("0") || playerMove.equals("1"))) {
+                while (!(playerMove.equals("0") || playerMove.equals("1"))) {
                     System.out.println("Введите корректное значение!");
                     playerMove = scanner.next();
                 }
@@ -87,7 +88,8 @@ public class Game {
                     } else if (total == 21) {
                         break;
                     }
-                    System.out.println("\nВведите “1”, чтобы взять карту, и “0”, чтобы остановиться .");
+                    System.out.println("\nВведите “1”, чтобы взять карту, " +
+                                       "и “0”, чтобы остановиться .");
 
                     playerMove = scanner.next();
                     while(!(playerMove.equals("0") || playerMove.equals("1"))) {

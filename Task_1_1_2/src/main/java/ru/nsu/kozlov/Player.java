@@ -35,7 +35,7 @@ public class Player {
         System.out.print(", <закрытая карта>]\n");
     }
 
-    int getTotalScore () {
+    int getTotalScore() {
         int total = 0;
 
         for (Card card : cards) {
