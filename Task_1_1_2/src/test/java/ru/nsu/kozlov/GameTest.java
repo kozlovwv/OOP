@@ -14,9 +14,16 @@ public class GameTest {
 
     @Test
     void testPlay() {
-        ByteArrayInputStream inContent = new ByteArrayInputStream("1\n".repeat(1000).getBytes());
+        ByteArrayInputStream inContent = new ByteArrayInputStream("0\n".repeat(100).getBytes());
         System.setIn(inContent);
+
         Game.play(100);
+
+        ByteArrayInputStream inContent2 = new ByteArrayInputStream("1\n".repeat(1000).getBytes());
+        System.setIn(inContent2);
+
+        Game.play(100);
+
         Assertions.assertTrue(true);
     }
 
