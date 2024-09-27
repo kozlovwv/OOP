@@ -2,6 +2,8 @@ package ru.nsu.kozlov;
 
 import java.util.Scanner;
 
+/** implementation of BlackJack game.
+ */
 public class Game {
     static void play(int rounds) {
         int playerScore = 0;

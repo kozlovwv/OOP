@@ -2,6 +2,8 @@ package ru.nsu.kozlov;
 
 import java.util.LinkedList;
 
+/** implementation of player.
+ */
 public class Player {
     private final LinkedList<Card> cards = new LinkedList<Card>();
 

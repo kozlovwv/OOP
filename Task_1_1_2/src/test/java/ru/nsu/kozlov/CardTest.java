@@ -6,6 +6,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 
+/** tests for class Card.
+ */
 public class CardTest {
 
     @Test

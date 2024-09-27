@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/** implementation of deck
+ */
 public class Deck {
     final String[] suits = {"Трефы", "Пики", "Черви", "Бубны"};
     final String[] ranks = {"Двойка", "Тройка", "Четверка", "Пятерка", "Шестерка", "Семерка",
@@ -12,6 +14,8 @@ public class Deck {
 
     private final Queue<Card> deck = new LinkedList<>();
 
+    /** create a deck with 52 cards, then shuffle it.
+     */
     public Deck() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 13; j++) {
