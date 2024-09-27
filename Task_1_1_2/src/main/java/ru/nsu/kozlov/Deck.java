@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/** implementation of deck
+/** implementation of deck.
  */
 public class Deck {
     final String[] suits = {"Трефы", "Пики", "Черви", "Бубны"};
@@ -38,6 +38,12 @@ public class Deck {
         deck.offer(card2);
     }
 
+    /** constructor for PlayerTest.
+     *
+     * @param card1 first card
+     * @param card2 second card
+     * @param card3 third card
+     */
     public Deck(Card card1, Card card2, Card card3) {
         deck.offer(card1);
         deck.offer(card2);
