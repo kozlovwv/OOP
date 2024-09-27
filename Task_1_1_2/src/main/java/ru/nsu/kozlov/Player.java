@@ -42,9 +42,9 @@ public class Player {
             total += card.score;
         }
 
-        if(total > 21) {
+        if (total > 21) {
             for (Card card : cards) {
-                if(card.rank.equals("Туз") && (card.score == 11)) {
+                if (card.rank.equals("Туз") && (card.score == 11)) {
                     card.score -= 10;
                     total -= 10;
                 }

@@ -15,7 +15,8 @@ public class Deck {
     public Deck() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 13; j++) {
-                if (ranks[j].equals("Валет") || ranks[j].equals("Дама") || ranks[j].equals("Король")) {
+                if (ranks[j].equals("Валет") || ranks[j].equals("Дама")
+                                             || ranks[j].equals("Король")) {
                     deck.offer(new Card(suits[i], ranks[j], 10));
                 } else if (ranks[j].equals("Туз")) {
                     deck.offer(new Card(suits[i], ranks[j], 11));
@@ -50,7 +51,8 @@ public class Deck {
     void remakeDeck() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 13; j++) {
-                if (ranks[j].equals("Валет") || ranks[j].equals("Дама") || ranks[j].equals("Король")) {
+                if (ranks[j].equals("Валет") || ranks[j].equals("Дама")
+                                             || ranks[j].equals("Король")) {
                     deck.offer(new Card(suits[i], ranks[j], 10));
                 } else if (ranks[j].equals("Туз")) {
                     deck.offer(new Card(suits[i], ranks[j], 11));
