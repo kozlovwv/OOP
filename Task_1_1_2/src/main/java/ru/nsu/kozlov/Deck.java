@@ -28,6 +28,17 @@ public class Deck {
         System.out.println("Новая колода карт!");
     }
 
+    public Deck(Card card1, Card card2) {
+        deck.offer(card1);
+        deck.offer(card2);
+    }
+
+    public Deck(Card card1, Card card2, Card card3) {
+        deck.offer(card1);
+        deck.offer(card2);
+        deck.offer(card3);
+    }
+
     Card getCard() {
         return deck.poll();
     }
