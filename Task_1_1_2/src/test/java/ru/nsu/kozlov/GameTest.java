@@ -1,13 +1,12 @@
 package ru.nsu.kozlov;
 
-import java.io.ByteArrayOutputStream;
-import java.io.ByteArrayInputStream;
-import java.io.PrintStream;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Assertions;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import org.junit.jupiter.api.Test;
 
 public class GameTest {
@@ -24,7 +23,7 @@ public class GameTest {
 
         Game.play(100);
 
-        Assertions.assertTrue(true);
+        assertTrue(true);
     }
 
     @Test
