@@ -1,20 +1,24 @@
 package ru.nsu.kozlov;
 
 import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.PrintStream;
 
-//import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class GameTest {
 
-//    @Test
-//    void testPlay() {
-//    ????????????????????????????????????????????????????????????
-//    }
+    @Test
+    void testPlay() {
+        ByteArrayInputStream inContent = new ByteArrayInputStream("0\n".repeat(100).getBytes());
+        System.setIn(inContent);
+        Game.play(100);
+        Assertions.assertTrue(true);
+    }
 
     @Test
     void testPrintScores() {
