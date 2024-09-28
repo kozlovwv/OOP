@@ -2,7 +2,7 @@ package ru.nsu.kozlov;
 
 import java.util.Scanner;
 
-/** implementation of BlackJack game.
+/** implementation of BlackJack Game.
  */
 public class Game {
     int playerScore;
