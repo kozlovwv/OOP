@@ -4,6 +4,12 @@ package ru.nsu.kozlov;
  */
 public class Main {
     public static void main(String[] args) {
-        Game.play(20);
+        Game game = new Game(new Card[]{new Card("Пики", "Король", 10),
+                                        new Card("Пики", "Тройка", 3),
+                                        new Card("Пики", "Туз", 11),
+                                        new Card("Пики", "Пятерка", 5),
+                                        new Card("Черви", "Пятерка", 5),
+                                        new Card("Пики", "Двойка", 2)});
+        game.play(1);
     }
 }

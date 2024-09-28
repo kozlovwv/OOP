@@ -5,23 +5,48 @@ import java.util.Scanner;
 /** implementation of BlackJack game.
  */
 public class Game {
-    static void play(int rounds) {
-        int playerScore = 0;
-        int dealerScore = 0;
-        int roundsCounter = 0;
-        boolean isOver;
-        String playerMove;
+    int playerScore;
+    int dealerScore;
+    int roundsCounter;
+    Deck deck;
+    Player player;
+    Player dealer;
+    Scanner scanner;
+    boolean hello = false;
 
-        Scanner scanner = new Scanner(System.in);
+    public Game() {
+        playerScore = 0;
+        dealerScore = 0;
+        roundsCounter = 0;
 
-        System.out.println("Добро пожаловать в Блэкджек!");
+        deck = new Deck();
+        player = new Player();
+        dealer = new Player();
 
-        Deck deck = new Deck();
-        Player player = new Player();
-        Player dealer = new Player();
+        scanner = new Scanner(System.in);
+    }
+
+    public Game(Card[] cards) {
+        playerScore = 0;
+        dealerScore = 0;
+        roundsCounter = 0;
+
+        deck = new Deck(cards);
+        player = new Player();
+        dealer = new Player();
+
+        scanner = new Scanner(System.in);
+    }
+
+    void play(int rounds) {
+
+        if (!hello) {
+            System.out.println("Добро пожаловать в Блэкджек!");
+            hello = true;
+        }
 
         while (roundsCounter < rounds) {
-            isOver = false;
+            boolean isOver = false;
             roundsCounter++;
 
             player.clear();
@@ -60,9 +85,9 @@ public class Game {
                 }
             } else {
                 System.out.println("\nВаш ход\n-------\nВведите “1”, "
-                                   + "чтобы взять карту, и “0”, чтобы остановиться .");
+                        + "чтобы взять карту, и “0”, чтобы остановиться .");
 
-                playerMove = scanner.next();
+                String playerMove = scanner.next();
                 while (!(playerMove.equals("0") || playerMove.equals("1"))) {
                     System.out.println("Введите корректное значение!");
                     playerMove = scanner.next();
@@ -91,7 +116,7 @@ public class Game {
                         break;
                     }
                     System.out.println("\nВведите “1”, чтобы взять карту, "
-                                       + "и “0”, чтобы остановиться .");
+                            + "и “0”, чтобы остановиться .");
 
                     playerMove = scanner.next();
                     while (!(playerMove.equals("0") || playerMove.equals("1"))) {

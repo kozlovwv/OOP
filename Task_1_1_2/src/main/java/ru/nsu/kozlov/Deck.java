@@ -50,6 +50,12 @@ public class Deck {
         deck.offer(card3);
     }
 
+    public Deck(Card[] cards) {
+        for (Card card : cards) {
+            deck.offer(card);
+        }
+    }
+
     Card getCard() {
         return deck.poll();
     }
