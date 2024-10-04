@@ -27,4 +27,9 @@ public class Add extends Expression {
     Expression deepCopy() {
         return new Add(leftOp.deepCopy(), rightOp.deepCopy());
     }
+
+    @Override
+    int eval(String varsLine) {
+        return leftOp.eval(varsLine) + rightOp.eval(varsLine);
+    }
 }

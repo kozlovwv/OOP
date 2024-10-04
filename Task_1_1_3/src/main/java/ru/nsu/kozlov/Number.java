@@ -21,4 +21,9 @@ public class Number extends Expression {
     Expression deepCopy() {
         return new Number(value);
     }
+
+    @Override
+    int eval(String varsLine) {
+        return value;
+    }
 }

@@ -28,4 +28,9 @@ public class Mul extends Expression {
     Expression deepCopy() {
         return new Mul(leftOp.deepCopy(), rightOp.deepCopy());
     }
+
+    @Override
+    int eval(String varsLine) {
+        return leftOp.eval(varsLine) * rightOp.eval(varsLine);
+    }
 }

@@ -21,4 +21,24 @@ public class Variable extends Expression {
     Expression deepCopy() {
         return new Variable(varName);
     }
+
+    @Override
+    int eval(String varsLine) {
+        String[] vars = varsLine.split(";");
+        int res = 0;
+
+        for (String line : vars) {
+            String[] partsOfLine = line.split("=");
+
+            partsOfLine[0] = partsOfLine[0].trim();
+            partsOfLine[1] = partsOfLine[1].trim();
+
+            if (partsOfLine[0].equals(varName)) {
+                res = Integer.parseInt(partsOfLine[1]);
+                break;
+            }
+        }
+
+        return res;
+    }
 }

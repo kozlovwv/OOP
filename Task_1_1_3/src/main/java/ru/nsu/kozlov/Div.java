@@ -29,4 +29,9 @@ public class Div extends Expression {
     Expression deepCopy() {
         return new Sub(leftOp.deepCopy(), rightOp.deepCopy());
     }
+
+    @Override
+    int eval(String varsLine) {
+        return leftOp.eval(varsLine) / rightOp.eval(varsLine);
+    }
 }
