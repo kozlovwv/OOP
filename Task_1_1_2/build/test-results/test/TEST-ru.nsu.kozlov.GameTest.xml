@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.kozlov.GameTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-09-28T11:42:51" hostname="BOSS" time="0.057">
+  <properties/>
+  <testcase name="testPrintScores2()" classname="ru.nsu.kozlov.GameTest" time="0.017"/>
+  <testcase name="testPrintScores3()" classname="ru.nsu.kozlov.GameTest" time="0.001"/>
+  <testcase name="testPlay()" classname="ru.nsu.kozlov.GameTest" time="0.029"/>
+  <testcase name="testPrintScores()" classname="ru.nsu.kozlov.GameTest" time="0.002"/>
+  <testcase name="testOfGamePlayWithConditionsChecking2()" classname="ru.nsu.kozlov.GameTest" time="0.002"/>
+  <testcase name="testOfGamePlayWithConditionsChecking()" classname="ru.nsu.kozlov.GameTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
