@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"ru.nsu.kozlov","l":"Add"},{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.kozlov","l":"Div"},{"p":"ru.nsu.kozlov","l":"Expression"},{"p":"ru.nsu.kozlov","l":"Main"},{"p":"ru.nsu.kozlov","l":"Mul"},{"p":"ru.nsu.kozlov","l":"Number"},{"p":"ru.nsu.kozlov","l":"Sub"},{"p":"ru.nsu.kozlov","l":"Variable"}]
