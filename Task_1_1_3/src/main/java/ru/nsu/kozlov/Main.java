@@ -9,11 +9,5 @@ public class Main {
 
         Expression simple = ex.simplify();
         simple.print();
-
-//        System.out.println();
-//        Expression ex2 = Parser.parse("1 + 1 + 1 + (((((2 * 8)/2))))");
-//        ex2.print();
-//        System.out.println();
-//        System.out.println((ex2.eval("x = 2")));
     }
 }
