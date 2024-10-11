@@ -1,6 +1,7 @@
 package ru.nsu.kozlov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
@@ -129,5 +130,64 @@ class ExpressionTest {
         assertEquals("(((z+2.5)-6)+((((x*8)/3)-7)+((4/y)+4)))", consoleOutput);
 
         System.setOut(System.out);
+    }
+
+    @Test
+    void testDiv() {
+        Expression ex = Parser.parse("10/x");
+
+        assertEquals(ex, new Div(new Number(10), new Variable("x")));
+
+        try {
+            double res = ex.eval("x = 0");
+        } catch (IllegalStateException exception) {
+            assertTrue(true);
+        }
+
+        Expression ex2 = Parser.parse("0/x");
+        Expression ex2S = ex2.simplify();
+
+        assertEquals(ex2S, new Number(0));
+
+        Expression ex3 = Parser.parse("x/1");
+        Expression ex3S = ex3.simplify();
+
+        assertEquals(ex3S, new Variable("x"));
+    }
+
+    @Test
+    void testMul() {
+        Expression ex = Parser.parse("0 * x");
+
+        assertEquals(ex, new Mul(new Number(0), new Variable("x")));
+
+        Expression exS = ex.simplify();
+        assertEquals(exS, new Number(0));
+
+        Expression ex2 = Parser.parse("x * 0");
+        Expression ex2S = ex2.simplify();
+        assertEquals(ex2S, new Number(0));
+
+        Expression ex3 = Parser.parse("1 * x");
+        Expression ex3S = ex3.simplify();
+        assertEquals(ex3S, new Variable("x"));
+
+        Expression ex4 = Parser.parse("x * 1");
+        Expression ex4S = ex4.simplify();
+        assertEquals(ex4S, new Variable("x"));
+    }
+
+    @Test
+    void testSub() {
+        Expression ex = Parser.parse("x - x");
+
+        assertEquals(ex, new Sub(new Variable("x"), new Variable("x")));
+
+        Expression exS = ex.simplify();
+        assertEquals(exS, new Number(0));
+
+        Expression ex2 = Parser.parse("x - 0");
+        Expression ex2S = ex2.simplify();
+        assertEquals(ex2S, new Variable("x"));
     }
 }
