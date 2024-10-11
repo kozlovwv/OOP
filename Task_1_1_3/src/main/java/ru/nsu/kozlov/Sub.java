@@ -4,9 +4,9 @@ public class Sub extends Expression {
     final Expression leftOp;
     final Expression rightOp;
 
-    Sub(Expression L, Expression R) {
-        leftOp = L;
-        rightOp = R;
+    Sub(Expression l, Expression r) {
+        leftOp = l;
+        rightOp = r;
     }
 
     Expression getLeftOp() {

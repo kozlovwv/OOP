@@ -22,10 +22,11 @@ public class Number extends Expression {
 
     @Override
     void print() {
-        if (value % 1 == 0)
-            System.out.print((int)value);
-        else
+        if (value % 1 == 0) {
+            System.out.print((int) value);
+        } else {
             System.out.print(value);
+        }
     }
 
     @Override

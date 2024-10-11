@@ -4,9 +4,9 @@ public class Div extends Expression {
     final Expression leftOp;
     final Expression rightOp;
 
-    Div(Expression L, Expression R) {
-        leftOp = L;
-        rightOp = R;
+    Div(Expression l, Expression r) {
+        leftOp = l;
+        rightOp = r;
     }
 
     Expression getLeftOp() {

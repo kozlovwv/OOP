@@ -2,9 +2,9 @@ package ru.nsu.kozlov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import org.junit.jupiter.api.Test;
 
 public class ParserTest {
     @Test
