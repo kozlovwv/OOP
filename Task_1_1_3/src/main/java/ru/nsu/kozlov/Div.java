@@ -1,5 +1,7 @@
 package ru.nsu.kozlov;
 
+/** implementation of division.
+ */
 public class Div extends Expression {
     final Expression leftOp;
     final Expression rightOp;
