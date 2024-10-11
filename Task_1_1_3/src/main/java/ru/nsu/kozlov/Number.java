@@ -1,5 +1,7 @@
 package ru.nsu.kozlov;
 
+/** implementation of number.
+ */
 public class Number extends Expression {
     final double value;
 

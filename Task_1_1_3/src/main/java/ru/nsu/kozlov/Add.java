@@ -1,5 +1,7 @@
 package ru.nsu.kozlov;
 
+/** implementation of addition.
+ */
 public class Add extends Expression {
     final Expression leftOp;
     final Expression rightOp;

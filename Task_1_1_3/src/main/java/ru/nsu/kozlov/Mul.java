@@ -1,5 +1,7 @@
 package ru.nsu.kozlov;
 
+/** implementation of multiplication.
+ */
 public class Mul extends Expression {
     final Expression leftOp;
     final Expression rightOp;

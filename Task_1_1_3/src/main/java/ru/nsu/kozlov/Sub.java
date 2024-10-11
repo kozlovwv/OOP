@@ -1,5 +1,7 @@
 package ru.nsu.kozlov;
 
+/** implementation of subtraction.
+ */
 public class Sub extends Expression {
     final Expression leftOp;
     final Expression rightOp;

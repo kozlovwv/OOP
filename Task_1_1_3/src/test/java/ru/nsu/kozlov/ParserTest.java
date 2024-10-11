@@ -6,6 +6,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 
+/** tests for Parser class.
+ */
 public class ParserTest {
     @Test
     void testParse1() {

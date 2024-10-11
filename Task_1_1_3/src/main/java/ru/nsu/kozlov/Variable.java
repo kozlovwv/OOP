@@ -1,5 +1,7 @@
 package ru.nsu.kozlov;
 
+/** implementation of variable.
+ */
 public class Variable extends Expression {
     final String varName;
 

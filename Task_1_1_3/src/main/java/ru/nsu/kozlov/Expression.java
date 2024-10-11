@@ -1,5 +1,7 @@
 package ru.nsu.kozlov;
 
+/** abstract class Expression with its functions.
+ */
 public abstract class Expression {
     abstract void print();
 

@@ -3,16 +3,16 @@ plugins {
     id 'jacoco'
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17) // Specify desired Java version
-    }
-}
-
-tasks.withType(JavaCompile) {
-    sourceCompatibility = '17'
-    targetCompatibility = '17'
-}
+//java {
+//    toolchain {
+//        languageVersion = JavaLanguageVersion.of(17) // Specify desired Java version
+//    }
+//}
+//
+//tasks.withType(JavaCompile) {
+//    sourceCompatibility = '17'
+//    targetCompatibility = '17'
+//}
 
 group = 'ru.nsu.kozlov'
 version = '1.0-SNAPSHOT'

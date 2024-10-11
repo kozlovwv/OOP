@@ -1,5 +1,7 @@
 package ru.nsu.kozlov;
 
+/** implementation of parsing algorithm.
+ */
 public class Parser {
     private static String expression;
     private static String token;
