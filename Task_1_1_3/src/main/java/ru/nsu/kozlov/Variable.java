@@ -1,10 +1,23 @@
 package ru.nsu.kozlov;
 
 public class Variable extends Expression {
-    String varName;
+    final String varName;
 
     Variable(String variableName) {
         varName = variableName;
+    }
+
+    String getValue() {
+        return varName;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Variable second) {
+            return varName.equals(second.getValue());
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -18,14 +31,10 @@ public class Variable extends Expression {
     }
 
     @Override
-    Expression deepCopy() {
-        return new Variable(varName);
-    }
-
-    @Override
-    int eval(String varsLine) {
+    double eval(String varsLine) {
         String[] vars = varsLine.split(";");
-        int res = 0;
+        double res = 0.0;
+        boolean flag = false;
 
         for (String line : vars) {
             String[] partsOfLine = line.split("=");
@@ -34,11 +43,21 @@ public class Variable extends Expression {
             partsOfLine[1] = partsOfLine[1].trim();
 
             if (partsOfLine[0].equals(varName)) {
-                res = Integer.parseInt(partsOfLine[1]);
+                res = Double.parseDouble(partsOfLine[1]);
+                flag = true;
                 break;
             }
         }
 
-        return res;
+        if (flag) {
+            return res;
+        } else {
+            throw new ArithmeticException();
+        }
+    }
+
+    @Override
+    Expression simplify() {
+        return new Variable(varName);
     }
 }

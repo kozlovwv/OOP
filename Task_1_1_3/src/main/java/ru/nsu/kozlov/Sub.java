@@ -1,12 +1,29 @@
 package ru.nsu.kozlov;
 
 public class Sub extends Expression {
-    Expression leftOp;
-    Expression rightOp;
+    final Expression leftOp;
+    final Expression rightOp;
 
     Sub(Expression L, Expression R) {
         leftOp = L;
         rightOp = R;
+    }
+
+    Expression getLeftOp() {
+        return leftOp;
+    }
+
+    Expression getRightOp() {
+        return rightOp;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Sub second) {
+            return (leftOp.equals(second.getLeftOp()) && rightOp.equals(second.getRightOp()));
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -24,12 +41,22 @@ public class Sub extends Expression {
     }
 
     @Override
-    Expression deepCopy() {
-        return new Sub(leftOp.deepCopy(), rightOp.deepCopy());
+    double eval(String varsLine) {
+        return leftOp.eval(varsLine) - rightOp.eval(varsLine);
     }
 
     @Override
-    int eval(String varsLine) {
-        return leftOp.eval(varsLine) - rightOp.eval(varsLine);
+    Expression simplify() {
+        Expression L = leftOp.simplify();
+        Expression R = rightOp.simplify();
+
+        if ((L instanceof Number) && (R instanceof Number))
+            return new Number(L.eval(null) - R.eval(null));
+        else if ((R instanceof Number) && (R.eval(null) == 0.0))
+            return L;
+        else if (L.equals(R))
+            return new Number(0.0);
+        else
+            return new Sub(L, R);
     }
 }

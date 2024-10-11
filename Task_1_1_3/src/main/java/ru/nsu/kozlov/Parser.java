@@ -53,7 +53,7 @@ public class Parser {
         } else {
             readToken();
             if (token.charAt(0) >= '0' && token.charAt(0) <= '9')
-                return new Number(Integer.parseInt(token));
+                return new Number(Double.parseDouble(token));
             else
                 return new Variable(token);
         }
@@ -86,6 +86,6 @@ public class Parser {
         char ch = expression.charAt(pos);
         boolean cond1 = ch >= '0' && ch <= '9';
         boolean cond2 = (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
-        return cond1 || cond2;
+        return cond1 || cond2 || (ch == '.');
     }
 }
