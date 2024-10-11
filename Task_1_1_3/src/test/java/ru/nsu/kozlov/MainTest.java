@@ -2,9 +2,9 @@ package ru.nsu.kozlov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import org.junit.jupiter.api.Test;
 
 class MainTest {
     @Test
@@ -17,5 +17,7 @@ class MainTest {
         String consoleOutput = outputStream.toString();
 
         assertEquals("((1+x)-(1+x))\n0", consoleOutput);
+
+        System.setOut(System.out);
     }
 }
