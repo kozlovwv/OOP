@@ -47,17 +47,17 @@ public class Sub extends Expression {
 
     @Override
     Expression simplify() {
-        Expression L = leftOp.simplify();
-        Expression R = rightOp.simplify();
+        Expression l = leftOp.simplify();
+        Expression r = rightOp.simplify();
 
-        if ((L instanceof Number) && (R instanceof Number)) {
-            return new Number(L.eval(null) - R.eval(null));
-        } else if ((R instanceof Number) && (R.eval(null) == 0.0)) {
-            return L;
-        } else if (L.equals(R)) {
+        if ((l instanceof Number) && (r instanceof Number)) {
+            return new Number(l.eval(null) - r.eval(null));
+        } else if ((r instanceof Number) && (r.eval(null) == 0.0)) {
+            return l;
+        } else if (l.equals(r)) {
             return new Number(0.0);
         } else {
-            return new Sub(L, R);
+            return new Sub(l, r);
         }
     }
 }

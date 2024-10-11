@@ -20,8 +20,8 @@ public class Mul extends Expression {
     @Override
     public boolean equals(Object object) {
         if (object instanceof Mul second) {
-            return (leftOp.equals(second.getLeftOp()) && rightOp.equals(second.getRightOp())) ||
-                    (leftOp.equals(second.getRightOp()) && rightOp.equals(second.getLeftOp()));
+            return (leftOp.equals(second.getLeftOp()) && rightOp.equals(second.getRightOp()))
+                    || (leftOp.equals(second.getRightOp()) && rightOp.equals(second.getLeftOp()));
         } else {
             return false;
         }
@@ -49,21 +49,21 @@ public class Mul extends Expression {
 
     @Override
     Expression simplify() {
-        Expression L = leftOp.simplify();
-        Expression R = rightOp.simplify();
+        Expression l = leftOp.simplify();
+        Expression r = rightOp.simplify();
 
-        if ((L instanceof Number) && (R instanceof Number)) {
-            return new Number(L.eval(null) * R.eval(null));
-        } else if ((L instanceof Number) && (L.eval(null) == 0.0)) {
+        if ((l instanceof Number) && (r instanceof Number)) {
+            return new Number(l.eval(null) * r.eval(null));
+        } else if ((l instanceof Number) && (l.eval(null) == 0.0)) {
             return new Number(0.0);
-        } else if ((R instanceof Number) && (R.eval(null) == 0.0)) {
+        } else if ((r instanceof Number) && (r.eval(null) == 0.0)) {
             return new Number(0.0);
-        } else if ((L instanceof Number) && (L.eval(null) == 1.0)) {
-            return R;
-        } else if ((R instanceof Number) && (R.eval(null) == 1.0)) {
-            return L;
+        } else if ((l instanceof Number) && (l.eval(null) == 1.0)) {
+            return r;
+        } else if ((r instanceof Number) && (r.eval(null) == 1.0)) {
+            return l;
         } else {
-            return new Mul(L, R);
+            return new Mul(l, r);
         }
     }
 }

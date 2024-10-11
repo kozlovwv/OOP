@@ -54,23 +54,23 @@ public class Div extends Expression {
 
     @Override
     Expression simplify() {
-        Expression L = leftOp.simplify();
-        Expression R = rightOp.simplify();
+        Expression l = leftOp.simplify();
+        Expression r = rightOp.simplify();
 
-        if ((L instanceof Number) && (R instanceof Number)) {
-            double res = L.eval(null) / R.eval(null);
+        if ((l instanceof Number) && (r instanceof Number)) {
+            double res = l.eval(null) / r.eval(null);
             if (Double.isInfinite(res)) {
                 throw new IllegalStateException();
             }
             return new Number(res);
-        } else if ((L instanceof Number) && (L.eval(null) == 0.0)) {
+        } else if ((l instanceof Number) && (l.eval(null) == 0.0)) {
             return new Number(0.0);
-        } else if ((R instanceof Number) && (R.eval(null) == 1.0)) {
-            return L;
-        } else if ((R instanceof Number) && (R.eval(null) == 0.0)) {
+        } else if ((r instanceof Number) && (r.eval(null) == 1.0)) {
+            return l;
+        } else if ((r instanceof Number) && (r.eval(null) == 0.0)) {
             throw new IllegalStateException();
         } else {
-            return new Div(L, R);
+            return new Div(l, r);
         }
     }
 }
