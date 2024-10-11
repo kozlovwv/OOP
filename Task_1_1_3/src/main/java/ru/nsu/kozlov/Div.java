@@ -63,14 +63,14 @@ public class Div extends Expression {
                 throw new IllegalStateException();
             }
             return new Number(res);
-        }
-        else if ((L instanceof Number) && (L.eval(null) == 0.0))
+        } else if ((L instanceof Number) && (L.eval(null) == 0.0)) {
             return new Number(0.0);
-        else if ((R instanceof Number) && (R.eval(null) == 1.0))
+        } else if ((R instanceof Number) && (R.eval(null) == 1.0)) {
             return L;
-        else if ((R instanceof Number) && (R.eval(null) == 0.0))
+        } else if ((R instanceof Number) && (R.eval(null) == 0.0)) {
             throw new IllegalStateException();
-        else
+        } else {
             return new Div(L, R);
+        }
     }
 }

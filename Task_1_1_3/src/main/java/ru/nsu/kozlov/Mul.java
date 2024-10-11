@@ -52,17 +52,18 @@ public class Mul extends Expression {
         Expression L = leftOp.simplify();
         Expression R = rightOp.simplify();
 
-        if ((L instanceof Number) && (R instanceof Number))
+        if ((L instanceof Number) && (R instanceof Number)) {
             return new Number(L.eval(null) * R.eval(null));
-        else if ((L instanceof Number) && (L.eval(null) == 0.0))
+        } else if ((L instanceof Number) && (L.eval(null) == 0.0)) {
             return new Number(0.0);
-        else if ((R instanceof Number) && (R.eval(null) == 0.0))
+        } else if ((R instanceof Number) && (R.eval(null) == 0.0)) {
             return new Number(0.0);
-        else if ((L instanceof Number) && (L.eval(null) == 1.0))
+        } else if ((L instanceof Number) && (L.eval(null) == 1.0)) {
             return R;
-        else if ((R instanceof Number) && (R.eval(null) == 1.0))
+        } else if ((R instanceof Number) && (R.eval(null) == 1.0)) {
             return L;
-        else
+        } else {
             return new Mul(L, R);
+        }
     }
 }

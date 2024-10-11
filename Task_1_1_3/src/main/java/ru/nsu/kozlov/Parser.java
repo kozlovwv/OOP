@@ -21,10 +21,11 @@ public class Parser {
         while (peekToken().equals("+") || peekToken().equals("-")) {
             oper = readToken();
             exR = parseMonome();
-            if (oper.equals("+"))
+            if (oper.equals("+")) {
                 exL = new Add(exL, exR);
-            else
+            } else {
                 exL = new Sub(exL, exR);
+            }
         }
         return exL;
     }
@@ -36,10 +37,11 @@ public class Parser {
         while (peekToken().equals("*") || peekToken().equals("/")) {
             oper = readToken();
             exR = parseAtom();
-            if (oper.equals("*"))
+            if (oper.equals("*")) {
                 exL = new Mul(exL, exR);
-            else
+            } else {
                 exL = new Div(exL, exR);
+            }
         }
         return exL;
     }
@@ -52,26 +54,31 @@ public class Parser {
             return ex;
         } else {
             readToken();
-            if (token.charAt(0) >= '0' && token.charAt(0) <= '9')
+            if (token.charAt(0) >= '0' && token.charAt(0) <= '9') {
                 return new Number(Double.parseDouble(token));
-            else
+            } else {
                 return new Variable(token);
+            }
         }
     }
 
     private static String readToken() {
-        while (pos < len && (expression.charAt(pos) == ' ' || expression.charAt(pos) == '\t'))
+        while (pos < len && (expression.charAt(pos) == ' ' || expression.charAt(pos) == '\t')) {
             pos++;
+        }
 
-        if (pos == len)
+        if (pos == len) {
             return token = "";
+        }
 
-        if ("+-*/()".contains(String.valueOf(expression.charAt(pos))))
+        if ("+-*/()".contains(String.valueOf(expression.charAt(pos)))) {
             return token = String.valueOf(expression.charAt(pos++));
+        }
 
         int left = pos;
-        while (pos < len && isDigitOrLetter())
+        while (pos < len && isDigitOrLetter()) {
             pos++;
+        }
         return token = expression.substring(left, pos);
     }
 
