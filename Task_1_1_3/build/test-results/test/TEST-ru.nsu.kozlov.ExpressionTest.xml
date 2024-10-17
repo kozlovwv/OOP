@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.kozlov.ExpressionTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2024-10-11T06:46:35" hostname="kosmolet" time="0.073">
+  <properties/>
+  <testcase name="testDerivative()" classname="ru.nsu.kozlov.ExpressionTest" time="0.026"/>
+  <testcase name="testSimplify2()" classname="ru.nsu.kozlov.ExpressionTest" time="0.001"/>
+  <testcase name="testSimplify3()" classname="ru.nsu.kozlov.ExpressionTest" time="0.002"/>
+  <testcase name="testDiv()" classname="ru.nsu.kozlov.ExpressionTest" time="0.003"/>
+  <testcase name="testMul()" classname="ru.nsu.kozlov.ExpressionTest" time="0.002"/>
+  <testcase name="testSub()" classname="ru.nsu.kozlov.ExpressionTest" time="0.002"/>
+  <testcase name="testEval2()" classname="ru.nsu.kozlov.ExpressionTest" time="0.003"/>
+  <testcase name="testEval3()" classname="ru.nsu.kozlov.ExpressionTest" time="0.003"/>
+  <testcase name="testPrint()" classname="ru.nsu.kozlov.ExpressionTest" time="0.004"/>
+  <testcase name="testEval()" classname="ru.nsu.kozlov.ExpressionTest" time="0.002"/>
+  <testcase name="testDerivative2()" classname="ru.nsu.kozlov.ExpressionTest" time="0.002"/>
+  <testcase name="testSimplify()" classname="ru.nsu.kozlov.ExpressionTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
