@@ -2,7 +2,7 @@ package ru.nsu.kozlov;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MainTest {
     @Test
