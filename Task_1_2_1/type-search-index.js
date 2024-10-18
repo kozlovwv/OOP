@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.kozlov","l":"Main"}]
+typeSearchIndex = [{"p":"ru.nsu.kozlov","l":"AdjacencyMatrixGraph"},{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.kozlov","l":"Edge"},{"p":"ru.nsu.kozlov","l":"Graph"},{"p":"ru.nsu.kozlov","l":"Main"},{"p":"ru.nsu.kozlov","l":"Vertex"}]
