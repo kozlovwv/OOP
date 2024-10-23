@@ -1,24 +1,28 @@
 package ru.nsu.kozlov;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Scanner;
 
-public class AdjacencyMatrixGraph implements Graph {
+public class AdjacencyMatrixGraph<V, W> implements Graph<V, W> {
 
     ArrayList<ArrayList<Integer>> adjacencyMatrix;
-    ArrayList<String> listOfVertices;
+    ArrayList<V> listOfVertices;
     int totalVertices;
 
     public AdjacencyMatrixGraph() {
-        listOfVertices = new ArrayList<String>();
-        adjacencyMatrix = new ArrayList<ArrayList<Integer>>();
+        listOfVertices = new ArrayList<>();
+        adjacencyMatrix = new ArrayList<>();
         totalVertices = 0;
     }
 
-    public void printAll() {
+    //for tests
+    public void printAllEdges() {
         boolean isEmpty = true;
-        for (String vFrom : listOfVertices) {
-            for (String vTo : listOfVertices) {
+        for (V vFrom : listOfVertices) {
+            for (V vTo : listOfVertices) {
                 int count = adjacencyMatrix.get(listOfVertices.indexOf(vFrom)).get(listOfVertices.indexOf(vTo));
                 if (count > 0) {
                     System.out.println(vFrom + " " + vTo + " " + count);
@@ -35,32 +39,31 @@ public class AdjacencyMatrixGraph implements Graph {
     }
 
     @Override
-    public void addEdge(String vertexFrom, String vertexTo, int weight) {
+    public void addEdge(V vertexFrom, V vertexTo, W weight) {
+        if (!listOfVertices.contains(vertexFrom)) {
+            throw new NoSuchVertexException("No such vertex: " + vertexFrom.toString());
+        }
+        if (!listOfVertices.contains(vertexTo)) {
+            throw new NoSuchVertexException("No such vertex: " + vertexTo.toString());
+        }
+
         int indexFrom = listOfVertices.indexOf(vertexFrom);
-        if (indexFrom == -1) {
-            System.out.println("No such vertex: " + vertexFrom + "!");
-            return;
-        }
         int indexTo = listOfVertices.indexOf(vertexTo);
-        if (indexTo == -1) {
-            System.out.println("No such vertex: " + vertexTo + "!");
-            return;
-        }
         int current = adjacencyMatrix.get(indexFrom).get(indexTo);
+
         adjacencyMatrix.get(indexFrom).set(indexTo, current + 1);
     }
 
     @Override
-    public void addVertex(String vertexName) {
+    public void addVertex(V vertexName) {
         if (listOfVertices.contains(vertexName)) {
-            System.out.println("This vertex is already exists!");
-            return;
+            throw new ExistingVertexException("Such vertex already exists: " + vertexName.toString());
         }
         listOfVertices.add(vertexName);
         for (int i = 0; i < totalVertices; i++) {
             adjacencyMatrix.get(i).add(0);
         }
-        adjacencyMatrix.add(new ArrayList<Integer>());
+        adjacencyMatrix.add(new ArrayList<>());
         for (int i = 0; i <= totalVertices; i++) {
             adjacencyMatrix.get(totalVertices).add(0);
         }
@@ -68,13 +71,12 @@ public class AdjacencyMatrixGraph implements Graph {
     }
 
     @Override
-    public ArrayList<String> getAdjacentVertices(String vertexName) {
+    public ArrayList<V> getAdjacentVertices(V vertexName) {
         if (!listOfVertices.contains(vertexName)) {
-            System.out.println("No such vertex: " + vertexName + "!");
-            return null;
+            throw new NoSuchVertexException("No such vertex: " + vertexName.toString());
         }
 
-        ArrayList<String> adjacentVertices = new ArrayList<String>();
+        ArrayList<V> adjacentVertices = new ArrayList<>();
         int indexV = listOfVertices.indexOf(vertexName);
 
         for (int i = 0; i < totalVertices; i++) {
@@ -87,36 +89,61 @@ public class AdjacencyMatrixGraph implements Graph {
     }
 
     @Override
-    public void readGraphFromFile(File file) {
+    public void readGraphFromFile(String fileName, Converter<V> vertexConv,
+                                                   Converter<W> weightConv) {
+        try {
+            Scanner scanner = new Scanner(new File(fileName));
 
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+
+            for (int i = 0; i < n; i++) {
+                this.addVertex(vertexConv.convert(scanner.nextLine()));
+            }
+
+            String v1 = "";
+            String v2 = "";
+            String w  = "";
+
+            for (int i = 0; i < m; i++) {
+                v1 = scanner.next();
+                v2 = scanner.next();
+                w  = scanner.next();
+                this.addEdge(vertexConv.convert(v1),
+                             vertexConv.convert(v2),
+                             weightConv.convert(w));
+            }
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+        }
     }
 
     @Override
-    public void removeEdge(String vertexFrom, String vertexTo, int weight) {
+    public void removeEdge(V vertexFrom, V vertexTo, W weight) {
+        if (!listOfVertices.contains(vertexFrom)) {
+            throw new NoSuchVertexException("No such vertex: " + vertexFrom.toString());
+        }
+        if (!listOfVertices.contains(vertexTo)) {
+            throw new NoSuchVertexException("No such vertex: " + vertexTo.toString());
+        }
+
         int indexFrom = listOfVertices.indexOf(vertexFrom);
-        if (indexFrom == -1) {
-            System.out.println("No such vertex: " + vertexFrom + "!");
-            return;
-        }
         int indexTo = listOfVertices.indexOf(vertexTo);
-        if (indexTo == -1) {
-            System.out.println("No such vertex: " + vertexTo + "!");
-            return;
-        }
         int current = adjacencyMatrix.get(indexFrom).get(indexTo);
+
         if (current == 0) {
-            System.out.println("No such edge: " + vertexFrom + " " + vertexTo + " " + weight);
-            return;
+            throw new NoSuchEdgeException("No such edge: " + vertexFrom.toString() + " " + vertexTo.toString() + " " + weight.toString());
         }
+
         adjacencyMatrix.get(indexFrom).set(indexTo, current - 1);
     }
 
     @Override
-    public void removeVertex(String vertexName) {
+    public void removeVertex(V vertexName) {
         int indexV = listOfVertices.indexOf(vertexName);
+
         if (indexV == -1) {
-            System.out.println("No such vertex: " + vertexName);
-            return;
+            throw new NoSuchVertexException("No such vertex: " + vertexName.toString());
         }
 
         listOfVertices.remove(vertexName);
@@ -126,5 +153,30 @@ public class AdjacencyMatrixGraph implements Graph {
         }
 
         adjacencyMatrix.remove(indexV);
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+        result += "adjacencyMatrix:\n";
+
+        for (int i = 0; i < totalVertices; i++) {
+            result += "[";
+            for (int j = 0; j < totalVertices - 1; j++) {
+                result = result + adjacencyMatrix.get(i).get(j) + ", ";
+            }
+            result = result + adjacencyMatrix.get(i).get(totalVertices - 1) + "]\n";
+        }
+
+        return result + "listOfVertices = " + listOfVertices + "\ntotalVertices = "
+                + totalVertices;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        AdjacencyMatrixGraph<?, ?> that = (AdjacencyMatrixGraph<?, ?>) object;
+        return totalVertices == that.totalVertices && Objects.equals(adjacencyMatrix, that.adjacencyMatrix) && Objects.equals(listOfVertices, that.listOfVertices);
     }
 }

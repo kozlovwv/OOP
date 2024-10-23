@@ -1,14 +1,13 @@
 package ru.nsu.kozlov;
 
-import java.io.File;
 import java.util.ArrayList;
 
-public interface Graph {
-    void addEdge(String vertexFrom, String vertexTo, int weight);
-    void removeEdge(String vertexFrom, String vertexTo, int weight);
-    void addVertex(String vertexName);
-    void removeVertex(String vertexName);
-    ArrayList<String> getAdjacentVertices(String vertexName);
-    void readGraphFromFile(File file);
-    //another functions...
+public interface Graph<V, W> {
+    void addEdge(V vertexFrom, V vertexTo, W weight);
+    void removeEdge(V vertexFrom, V vertexTo, W weight);
+    void addVertex(V vertexName);
+    void removeVertex(V vertexName);
+    ArrayList<V> getAdjacentVertices(V vertexName);
+    void readGraphFromFile(String fileName, Converter<V> vertexConvert,
+                                            Converter<W> weightConverter);
 }

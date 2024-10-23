@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Tests!");
 
-        AdjacencyMatrixGraph adjacencyMatrix = new AdjacencyMatrixGraph();
+        AdjacencyMatrixGraph<String, Integer> adjacencyMatrix = new AdjacencyMatrixGraph<>();
 
         adjacencyMatrix.addVertex("New-York");
         adjacencyMatrix.addVertex("Los-Angeles");
@@ -15,19 +15,17 @@ public class Main {
         adjacencyMatrix.addEdge("New-York", "California", 10);
         adjacencyMatrix.addEdge("New-York", "Los-Angeles", 10);
 
-        ArrayList<String> adjV = adjacencyMatrix.getAdjacentVertices("New-York");
+        AdjacencyMatrixGraph<String, Integer> adjacencyMatrix2 = new AdjacencyMatrixGraph<>();
 
-        for (String v : adjV) {
-            System.out.println(v);
-        }
+        adjacencyMatrix2.addVertex("New-York");
+        adjacencyMatrix2.addVertex("Los-Angeles");
+        adjacencyMatrix2.addVertex("California");
 
-        System.out.println();
+        adjacencyMatrix2.addEdge("New-York", "California", 10);
+        adjacencyMatrix2.addEdge("New-York", "Los-Angeles", 10);
 
-        adjacencyMatrix.printAll();
+        String str = adjacencyMatrix.toString();
 
-        adjacencyMatrix.removeVertex("Los-Angeles");
-        adjacencyMatrix.removeEdge("New-York", "California", 10);
-
-        adjacencyMatrix.printAll();
+        System.out.println(str);
     }
 }
