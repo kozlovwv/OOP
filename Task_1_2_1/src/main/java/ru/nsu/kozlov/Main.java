@@ -6,26 +6,23 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Tests!");
 
-        AdjacencyMatrixGraph<String, Integer> adjacencyMatrix = new AdjacencyMatrixGraph<>();
+        AdjacencyList<String, Integer> adjacencyList = new AdjacencyList<>();
 
-        adjacencyMatrix.addVertex("New-York");
-        adjacencyMatrix.addVertex("Los-Angeles");
-        adjacencyMatrix.addVertex("California");
+        adjacencyList.addVertex("New-York");
+        adjacencyList.addVertex("Los-Angeles");
+        adjacencyList.addVertex("California");
 
-        adjacencyMatrix.addEdge("New-York", "California", 10);
-        adjacencyMatrix.addEdge("New-York", "Los-Angeles", 10);
+        adjacencyList.addEdge("New-York", "California", 10);
+        adjacencyList.addEdge("New-York", "Los-Angeles", 10);
+        adjacencyList.addEdge("California", "Los-Angeles", 10);
+        adjacencyList.addEdge("Los-Angeles", "California", 10);
 
-        AdjacencyMatrixGraph<String, Integer> adjacencyMatrix2 = new AdjacencyMatrixGraph<>();
+        try {
+            ArrayList<String> sorted = TopologicalSort.topoSort(adjacencyList);
+            System.out.println(sorted);
+        } catch (CycleFoundException e) {
+            System.out.println("something went bad...///");
+        }
 
-        adjacencyMatrix2.addVertex("New-York");
-        adjacencyMatrix2.addVertex("Los-Angeles");
-        adjacencyMatrix2.addVertex("California");
-
-        adjacencyMatrix2.addEdge("New-York", "California", 10);
-        adjacencyMatrix2.addEdge("New-York", "Los-Angeles", 10);
-
-        String str = adjacencyMatrix.toString();
-
-        System.out.println(str);
     }
 }

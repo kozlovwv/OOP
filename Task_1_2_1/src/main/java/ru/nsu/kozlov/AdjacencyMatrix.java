@@ -6,36 +6,26 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class AdjacencyMatrixGraph<V, W> implements Graph<V, W> {
+public class AdjacencyMatrix<V, W extends Number> implements Graph<V, W> {
 
-    ArrayList<ArrayList<Integer>> adjacencyMatrix;
-    ArrayList<V> listOfVertices;
-    int totalVertices;
+    private final ArrayList<ArrayList<Integer>> adjacencyMatrix;
+    private final ArrayList<V> listOfVertices;
+    private int totalVertices;
 
-    public AdjacencyMatrixGraph() {
+    public AdjacencyMatrix() {
         listOfVertices = new ArrayList<>();
         adjacencyMatrix = new ArrayList<>();
         totalVertices = 0;
     }
 
-    //for tests
-    public void printAllEdges() {
-        boolean isEmpty = true;
-        for (V vFrom : listOfVertices) {
-            for (V vTo : listOfVertices) {
-                int count = adjacencyMatrix.get(listOfVertices.indexOf(vFrom)).get(listOfVertices.indexOf(vTo));
-                if (count > 0) {
-                    System.out.println(vFrom + " " + vTo + " " + count);
-                    isEmpty = false;
-                }
-            }
-        }
+    @Override
+    public int getTotalVertices() {
+        return totalVertices;
+    }
 
-        if (isEmpty) {
-            System.out.println("No edges!");
-        }
-
-        System.out.println();
+    @Override
+    public ArrayList<V> getListOfVertices() {
+        return listOfVertices;
     }
 
     @Override
@@ -97,8 +87,14 @@ public class AdjacencyMatrixGraph<V, W> implements Graph<V, W> {
             int n = scanner.nextInt();
             int m = scanner.nextInt();
 
+            totalVertices = n;
+
+            String v = "";
+
             for (int i = 0; i < n; i++) {
-                this.addVertex(vertexConv.convert(scanner.nextLine()));
+                v = scanner.nextLine();
+                this.addVertex(vertexConv.convert(v));
+                listOfVertices.add(vertexConv.convert(v));
             }
 
             String v1 = "";
@@ -176,7 +172,7 @@ public class AdjacencyMatrixGraph<V, W> implements Graph<V, W> {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        AdjacencyMatrixGraph<?, ?> that = (AdjacencyMatrixGraph<?, ?>) object;
+        AdjacencyMatrix<?, ?> that = (AdjacencyMatrix<?, ?>) object;
         return totalVertices == that.totalVertices && Objects.equals(adjacencyMatrix, that.adjacencyMatrix) && Objects.equals(listOfVertices, that.listOfVertices);
     }
 }
