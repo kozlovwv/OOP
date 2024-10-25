@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -115,7 +115,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">ru.nsu.kozlov</a></div>
-<h2 title="Interface Graph" class="title">Interface Graph</h2>
+<h2 title="Interface Graph" class="title">Interface Graph&lt;V,&#8203;W extends java.lang.Number&gt;</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -123,10 +123,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="AdjacencyMatrixGraph.html" title="class in ru.nsu.kozlov">AdjacencyMatrixGraph</a></code></dd>
+<dd><code><a href="AdjacencyList.html" title="class in ru.nsu.kozlov">AdjacencyList</a></code>, <code><a href="AdjacencyMatrix.html" title="class in ru.nsu.kozlov">AdjacencyMatrix</a></code>, <code><a href="IncidenceMatrix.html" title="class in ru.nsu.kozlov">IncidenceMatrix</a></code></dd>
 </dl>
 <hr>
-<pre>public interface <span class="typeNameLabel">Graph</span></pre>
+<pre>public interface <span class="typeNameLabel">Graph&lt;V,&#8203;W extends java.lang.Number&gt;</span></pre>
 </li>
 </ul>
 </div>
@@ -149,34 +149,48 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addEdge(java.lang.String,java.lang.String,int)">addEdge</a></span>&#8203;(java.lang.String&nbsp;vertexFrom,
-       java.lang.String&nbsp;vertexTo,
-       int&nbsp;weight)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addEdge(V,V,W)">addEdge</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexFrom,
+       <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexTo,
+       <a href="Graph.html" title="type parameter in Graph">W</a>&nbsp;weight)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addVertex(java.lang.String)">addVertex</a></span>&#8203;(java.lang.String&nbsp;vertexName)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addVertex(V)">addVertex</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexName)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;java.lang.String&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAdjacentVertices(java.lang.String)">getAdjacentVertices</a></span>&#8203;(java.lang.String&nbsp;vertexName)</code></th>
+<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAdjacentVertices(V)">getAdjacentVertices</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexName)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readGraphFromFile()">readGraphFromFile</a></span>()</code></th>
+<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getListOfVertices()">getListOfVertices</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeEdge()">removeEdge</a></span>()</code></th>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTotalVertices()">getTotalVertices</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeVertex()">removeVertex</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readGraphFromFile(java.lang.String,ru.nsu.kozlov.Converter,ru.nsu.kozlov.Converter)">readGraphFromFile</a></span>&#8203;(java.lang.String&nbsp;fileName,
+                 <a href="Converter.html" title="interface in ru.nsu.kozlov">Converter</a>&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;vertexConvert,
+                 <a href="Converter.html" title="interface in ru.nsu.kozlov">Converter</a>&lt;<a href="Graph.html" title="type parameter in Graph">W</a>&gt;&nbsp;weightConvert)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeEdge(V,V,W)">removeEdge</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexFrom,
+          <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexTo,
+          <a href="Graph.html" title="type parameter in Graph">W</a>&nbsp;weight)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeVertex(V)">removeVertex</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexName)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -196,60 +210,92 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="addEdge(java.lang.String,java.lang.String,int)">
+<a id="addEdge(java.lang.Object,java.lang.Object,java.lang.Number)">
+<!--   -->
+</a><a id="addEdge(V,V,W)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addEdge</h4>
-<pre class="methodSignature">void&nbsp;addEdge&#8203;(java.lang.String&nbsp;vertexFrom,
-             java.lang.String&nbsp;vertexTo,
-             int&nbsp;weight)</pre>
+<pre class="methodSignature">void&nbsp;addEdge&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexFrom,
+             <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexTo,
+             <a href="Graph.html" title="type parameter in Graph">W</a>&nbsp;weight)</pre>
 </li>
 </ul>
-<a id="removeEdge()">
+<a id="removeEdge(java.lang.Object,java.lang.Object,java.lang.Number)">
+<!--   -->
+</a><a id="removeEdge(V,V,W)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>removeEdge</h4>
-<pre class="methodSignature">void&nbsp;removeEdge()</pre>
+<pre class="methodSignature">void&nbsp;removeEdge&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexFrom,
+                <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexTo,
+                <a href="Graph.html" title="type parameter in Graph">W</a>&nbsp;weight)</pre>
 </li>
 </ul>
-<a id="addVertex(java.lang.String)">
+<a id="addVertex(java.lang.Object)">
+<!--   -->
+</a><a id="addVertex(V)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addVertex</h4>
-<pre class="methodSignature">void&nbsp;addVertex&#8203;(java.lang.String&nbsp;vertexName)</pre>
+<pre class="methodSignature">void&nbsp;addVertex&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexName)</pre>
 </li>
 </ul>
-<a id="removeVertex()">
+<a id="removeVertex(java.lang.Object)">
+<!--   -->
+</a><a id="removeVertex(V)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>removeVertex</h4>
-<pre class="methodSignature">void&nbsp;removeVertex()</pre>
+<pre class="methodSignature">void&nbsp;removeVertex&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexName)</pre>
 </li>
 </ul>
-<a id="getAdjacentVertices(java.lang.String)">
+<a id="getAdjacentVertices(java.lang.Object)">
+<!--   -->
+</a><a id="getAdjacentVertices(V)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getAdjacentVertices</h4>
-<pre class="methodSignature">java.util.ArrayList&lt;java.lang.String&gt;&nbsp;getAdjacentVertices&#8203;(java.lang.String&nbsp;vertexName)</pre>
+<pre class="methodSignature">java.util.ArrayList&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;getAdjacentVertices&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertexName)</pre>
 </li>
 </ul>
-<a id="readGraphFromFile()">
+<a id="readGraphFromFile(java.lang.String,ru.nsu.kozlov.Converter,ru.nsu.kozlov.Converter)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>readGraphFromFile</h4>
+<pre class="methodSignature">void&nbsp;readGraphFromFile&#8203;(java.lang.String&nbsp;fileName,
+                       <a href="Converter.html" title="interface in ru.nsu.kozlov">Converter</a>&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;vertexConvert,
+                       <a href="Converter.html" title="interface in ru.nsu.kozlov">Converter</a>&lt;<a href="Graph.html" title="type parameter in Graph">W</a>&gt;&nbsp;weightConvert)</pre>
+</li>
+</ul>
+<a id="getTotalVertices()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTotalVertices</h4>
+<pre class="methodSignature">int&nbsp;getTotalVertices()</pre>
+</li>
+</ul>
+<a id="getListOfVertices()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>readGraphFromFile</h4>
-<pre class="methodSignature">void&nbsp;readGraphFromFile()</pre>
+<h4>getListOfVertices</h4>
+<pre class="methodSignature">java.util.ArrayList&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;getListOfVertices()</pre>
 </li>
 </ul>
 </li>
