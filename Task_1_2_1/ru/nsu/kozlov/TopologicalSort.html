@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">TopologicalSort</span>
 extends java.lang.Object</pre>
+<div class="block">implementation of topological sorting.</div>
 </li>
 </ul>
 </div>
@@ -175,15 +176,19 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static &lt;V,&#8203;W extends java.lang.Number&gt;<br>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DFS(V,ru.nsu.kozlov.Graph,java.util.ArrayList)">DFS</a></span>&#8203;(V&nbsp;currVertex,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dfs(V,ru.nsu.kozlov.Graph,java.util.ArrayList)">dfs</a></span>&#8203;(V&nbsp;currVertex,
    <a href="Graph.html" title="interface in ru.nsu.kozlov">Graph</a>&lt;V,&#8203;W&gt;&nbsp;graph,
    java.util.ArrayList&lt;V&gt;&nbsp;allVertices)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">3-colored dfs.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static &lt;V,&#8203;W extends java.lang.Number&gt;<br>java.util.ArrayList&lt;V&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#topoSort(ru.nsu.kozlov.Graph)">topoSort</a></span>&#8203;(<a href="Graph.html" title="interface in ru.nsu.kozlov">Graph</a>&lt;V,&#8203;W&gt;&nbsp;graph)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">topological sorting.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -235,19 +240,39 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>topoSort</h4>
 <pre class="methodSignature">public static&nbsp;&lt;V,&#8203;W extends java.lang.Number&gt;&nbsp;java.util.ArrayList&lt;V&gt;&nbsp;topoSort&#8203;(<a href="Graph.html" title="interface in ru.nsu.kozlov">Graph</a>&lt;V,&#8203;W&gt;&nbsp;graph)</pre>
+<div class="block">topological sorting.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>V</code> - type of vertices</dd>
+<dd><code>W</code> - type of edge's weight</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>graph</code> - graph given to be sorted</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>sorted order of vertices</dd>
+</dl>
 </li>
 </ul>
-<a id="DFS(java.lang.Object,ru.nsu.kozlov.Graph,java.util.ArrayList)">
+<a id="dfs(java.lang.Object,ru.nsu.kozlov.Graph,java.util.ArrayList)">
 <!--   -->
-</a><a id="DFS(V,ru.nsu.kozlov.Graph,java.util.ArrayList)">
+</a><a id="dfs(V,ru.nsu.kozlov.Graph,java.util.ArrayList)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>DFS</h4>
-<pre class="methodSignature">public static&nbsp;&lt;V,&#8203;W extends java.lang.Number&gt;&nbsp;void&nbsp;DFS&#8203;(V&nbsp;currVertex,
+<h4>dfs</h4>
+<pre class="methodSignature">public static&nbsp;&lt;V,&#8203;W extends java.lang.Number&gt;&nbsp;void&nbsp;dfs&#8203;(V&nbsp;currVertex,
                                                             <a href="Graph.html" title="interface in ru.nsu.kozlov">Graph</a>&lt;V,&#8203;W&gt;&nbsp;graph,
                                                             java.util.ArrayList&lt;V&gt;&nbsp;allVertices)</pre>
+<div class="block">3-colored dfs.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>V</code> - type of vertices</dd>
+<dd><code>W</code> - type of edge's weight</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>currVertex</code> - current vertex</dd>
+<dd><code>graph</code> - graph on which dfs is running</dd>
+<dd><code>allVertices</code> - list of all graph's vertices</dd>
+</dl>
 </li>
 </ul>
 </li>
