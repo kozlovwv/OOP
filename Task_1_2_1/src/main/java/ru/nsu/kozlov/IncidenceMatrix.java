@@ -240,6 +240,7 @@ public class IncidenceMatrix<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(totalVertices, totalEdges, incidenceMatrix, listOfVertices, listOfEdges);
+        return Objects.hash(totalVertices, totalEdges,
+                            incidenceMatrix, listOfVertices, listOfEdges);
     }
 }
