@@ -19,6 +19,10 @@ public class AdjacencyList<V, W extends Number> implements Graph<V, W>{
         listOfVertices = new ArrayList<>();
     }
 
+    public Edge<V, W> getEdge(int i, int j) {
+        return adjacencyList.get(i).get(j);
+    }
+
     @Override
     public int getTotalVertices() {
         return totalVertices;
@@ -127,14 +131,11 @@ public class AdjacencyList<V, W extends Number> implements Graph<V, W>{
             int n = scanner.nextInt();
             int m = scanner.nextInt();
 
-            totalVertices = n;
-
             String v = "";
 
             for (int i = 0; i < n; i++) {
-                v = scanner.nextLine();
+                v = scanner.next();
                 this.addVertex(vertexConv.convert(v));
-                listOfVertices.add(vertexConv.convert(v));
             }
 
             String v1 = "";
@@ -144,7 +145,7 @@ public class AdjacencyList<V, W extends Number> implements Graph<V, W>{
             for (int i = 0; i < m; i++) {
                 v1 = scanner.next();
                 v2 = scanner.next();
-                w  = scanner.next();
+                w = scanner.next();
                 this.addEdge(vertexConv.convert(v1),
                         vertexConv.convert(v2),
                         weightConv.convert(w));
@@ -185,5 +186,10 @@ public class AdjacencyList<V, W extends Number> implements Graph<V, W>{
         if (object == null || getClass() != object.getClass()) return false;
         AdjacencyList<?, ?> that = (AdjacencyList<?, ?>) object;
         return totalVertices == that.totalVertices && Objects.equals(adjacencyList, that.adjacencyList) && Objects.equals(listOfVertices, that.listOfVertices);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(adjacencyList, listOfVertices, totalVertices);
     }
 }

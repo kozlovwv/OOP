@@ -23,6 +23,14 @@ public class IncidenceMatrix<V, W extends Number> implements Graph<V, W>{
         listOfEdges = new ArrayList<>();
     }
 
+    public Edge<V, W> getEdge(int i) {
+        return listOfEdges.get(i);
+    }
+
+    public int getCell(int i, int j) {
+        return incidenceMatrix.get(i).get(j);
+    }
+
     @Override
     public int getTotalVertices() {
         return totalVertices;
@@ -160,15 +168,11 @@ public class IncidenceMatrix<V, W extends Number> implements Graph<V, W>{
             int n = scanner.nextInt();
             int m = scanner.nextInt();
 
-            totalVertices = n;
-            totalEdges = m;
-
             String v = "";
 
             for (int i = 0; i < n; i++) {
-                v = scanner.nextLine();
+                v = scanner.next();
                 this.addVertex(vertexConv.convert(v));
-                listOfVertices.add(vertexConv.convert(v));
             }
 
             String v1 = "";
@@ -182,9 +186,6 @@ public class IncidenceMatrix<V, W extends Number> implements Graph<V, W>{
                 this.addEdge(vertexConv.convert(v1),
                         vertexConv.convert(v2),
                         weightConv.convert(w));
-                listOfEdges.add(new Edge<>(vertexConv.convert(v1),
-                                            vertexConv.convert(v2),
-                                            weightConv.convert(w)));
             }
         } catch (FileNotFoundException e) {
             e.getMessage();
@@ -216,5 +217,10 @@ public class IncidenceMatrix<V, W extends Number> implements Graph<V, W>{
                 + "\nlistOfVertices = " + listOfVertices
                 + "\ntotalEdges = " + totalEdges
                 + "\nlistOfVertices = " + listOfEdges;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(totalVertices, totalEdges, incidenceMatrix, listOfVertices, listOfEdges);
     }
 }

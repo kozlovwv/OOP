@@ -32,4 +32,9 @@ public class Edge<V, W extends Number> {
                 ", " + weight +
                 '}';
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vertexFrom, vertexTo, weight);
+    }
 }

@@ -18,6 +18,10 @@ public class AdjacencyMatrix<V, W extends Number> implements Graph<V, W> {
         totalVertices = 0;
     }
 
+    public int getCell(int i, int j) {
+        return adjacencyMatrix.get(i).get(j);
+    }
+
     @Override
     public int getTotalVertices() {
         return totalVertices;
@@ -87,14 +91,11 @@ public class AdjacencyMatrix<V, W extends Number> implements Graph<V, W> {
             int n = scanner.nextInt();
             int m = scanner.nextInt();
 
-            totalVertices = n;
-
             String v = "";
 
             for (int i = 0; i < n; i++) {
-                v = scanner.nextLine();
+                v = scanner.next();
                 this.addVertex(vertexConv.convert(v));
-                listOfVertices.add(vertexConv.convert(v));
             }
 
             String v1 = "";
@@ -174,5 +175,10 @@ public class AdjacencyMatrix<V, W extends Number> implements Graph<V, W> {
         if (object == null || getClass() != object.getClass()) return false;
         AdjacencyMatrix<?, ?> that = (AdjacencyMatrix<?, ?>) object;
         return totalVertices == that.totalVertices && Objects.equals(adjacencyMatrix, that.adjacencyMatrix) && Objects.equals(listOfVertices, that.listOfVertices);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(adjacencyMatrix, listOfVertices, totalVertices);
     }
 }
