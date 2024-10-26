@@ -6,6 +6,7 @@ package ru.nsu.kozlov;
 public class Main {
     /**
      * main method.
+     *
      * @param args some arguments
      */
     public static void main(String[] args) {

@@ -14,10 +14,11 @@ public class TopologicalSort {
 
     /**
      * topological sorting.
+     *
      * @param graph graph given to be sorted
-     * @return sorted order of vertices
      * @param <V> type of vertices
      * @param <W> type of edge's weight
+     * @return sorted order of vertices
      */
     public static <V, W extends Number> ArrayList<V> topoSort(Graph<V, W> graph) {
         ArrayList<V> sortedArray = new ArrayList<>();
@@ -43,6 +44,7 @@ public class TopologicalSort {
 
     /**
      * 3-colored dfs.
+     *
      * @param currVertex current vertex
      * @param graph graph on which dfs is running
      * @param allVertices list of all graph's vertices

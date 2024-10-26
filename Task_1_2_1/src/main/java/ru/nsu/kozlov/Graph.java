@@ -2,6 +2,12 @@ package ru.nsu.kozlov;
 
 import java.util.ArrayList;
 
+/**
+ * implementation of graph's interface.
+ *
+ * @param <V> type of vertices
+ * @param <W> type of edge's weight
+ */
 public interface Graph<V, W extends Number> {
     void addEdge(V vertexFrom, V vertexTo, W weight);
 

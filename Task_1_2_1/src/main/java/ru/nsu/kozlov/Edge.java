@@ -4,6 +4,7 @@ import java.util.Objects;
 
 /**
  * implementation of Edge.
+ *
  * @param <V> type of vertices
  * @param <W> type of edge's weight
  */
@@ -14,6 +15,7 @@ public class Edge<V, W extends Number> {
 
     /**
      * Edge constructor.
+     *
      * @param vf vertexFrom
      * @param vt vertexTo
      * @param w  weight

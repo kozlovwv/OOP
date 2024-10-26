@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 /**
  * implementation of incidence matrix.
+ *
  * @param <V> type of vertices
  * @param <W> type of edge's weight
  */
