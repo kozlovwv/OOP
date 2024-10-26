@@ -6,12 +6,20 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * implementation of adjacency matrix.
+ * @param <V> type of vertices
+ * @param <W> type of edge's weight
+ */
 public class AdjacencyMatrix<V, W extends Number> implements Graph<V, W> {
 
     private final ArrayList<ArrayList<Integer>> adjacencyMatrix;
     private final ArrayList<V> listOfVertices;
     private int totalVertices;
 
+    /**
+     * adjacency matrix's constructor.
+     */
     public AdjacencyMatrix() {
         listOfVertices = new ArrayList<>();
         adjacencyMatrix = new ArrayList<>();
@@ -51,7 +59,8 @@ public class AdjacencyMatrix<V, W extends Number> implements Graph<V, W> {
     @Override
     public void addVertex(V vertexName) {
         if (listOfVertices.contains(vertexName)) {
-            throw new ExistingVertexException("Such vertex already exists: " + vertexName.toString());
+            throw new ExistingVertexException("Such vertex already exists: "
+                                                + vertexName.toString());
         }
         listOfVertices.add(vertexName);
         for (int i = 0; i < totalVertices; i++) {
@@ -129,7 +138,9 @@ public class AdjacencyMatrix<V, W extends Number> implements Graph<V, W> {
         int current = adjacencyMatrix.get(indexFrom).get(indexTo);
 
         if (current == 0) {
-            throw new NoSuchEdgeException("No such edge: " + vertexFrom.toString() + " " + vertexTo.toString() + " " + weight.toString());
+            throw new NoSuchEdgeException("No such edge: " + vertexFrom.toString()
+                                            + " " + vertexTo.toString()
+                                            + " " + weight.toString());
         }
 
         adjacencyMatrix.get(indexFrom).set(indexTo, current - 1);
@@ -171,10 +182,16 @@ public class AdjacencyMatrix<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
         AdjacencyMatrix<?, ?> that = (AdjacencyMatrix<?, ?>) object;
-        return totalVertices == that.totalVertices && Objects.equals(adjacencyMatrix, that.adjacencyMatrix) && Objects.equals(listOfVertices, that.listOfVertices);
+        return totalVertices == that.totalVertices
+                && Objects.equals(adjacencyMatrix, that.adjacencyMatrix)
+                && Objects.equals(listOfVertices, that.listOfVertices);
     }
 
     @Override

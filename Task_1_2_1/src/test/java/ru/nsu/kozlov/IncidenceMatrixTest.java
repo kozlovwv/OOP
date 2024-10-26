@@ -197,11 +197,12 @@ class IncidenceMatrixTest {
         graph.addEdge("B", "C", 0);
         graph.addEdge("B", "F", 0);
 
-        ArrayList<String> vs = graph.getAdjacentVertices("B");
         ArrayList<String> ts = new ArrayList<>();
         ts.add("A");
         ts.add("C");
         ts.add("F");
+
+        ArrayList<String> vs = graph.getAdjacentVertices("B");
 
         assertEquals(vs, ts);
     }
@@ -249,6 +250,7 @@ class IncidenceMatrixTest {
                 + "totalVertices = 3\n"
                 + "listOfVertices = [A, B, C]\n"
                 + "totalEdges = 4\n"
-                + "listOfVertices = [{A, B, 0}, {C, B, 0}, {B, A, 0}, {B, C, 0}]", graph.toString());
+                + "listOfVertices = [{A, B, 0}, {C, B, 0}, {B, A, 0}, {B, C, 0}]",
+                graph.toString());
     }
 }

@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * tests for methods equals and hashCode in class Edge.
+ */
 public class EdgeTest {
 
     @Test

@@ -6,7 +6,12 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class IncidenceMatrix<V, W extends Number> implements Graph<V, W>{
+/**
+ * implementation of incidence matrix.
+ * @param <V> type of vertices
+ * @param <W> type of edge's weight
+ */
+public class IncidenceMatrix<V, W extends Number> implements Graph<V, W> {
 
     private int totalVertices;
     private int totalEdges;
@@ -15,6 +20,9 @@ public class IncidenceMatrix<V, W extends Number> implements Graph<V, W>{
     private final ArrayList<V> listOfVertices;
     private final ArrayList<Edge<V, W>> listOfEdges;
 
+    /**
+     * incidence matrix's constructor.
+     */
     public IncidenceMatrix() {
         totalEdges = 0;
         totalVertices = 0;
@@ -83,7 +91,9 @@ public class IncidenceMatrix<V, W extends Number> implements Graph<V, W>{
         }
 
         if (indexOfEdge == -1) {
-            throw new NoSuchEdgeException("No such edge: " + vertexFrom.toString() + " " + vertexTo.toString() + " " + weight.toString());
+            throw new NoSuchEdgeException("No such edge: " + vertexFrom.toString()
+                                            + " " + vertexTo.toString()
+                                            + " " + weight.toString());
         }
 
         for (int i = 0; i < totalVertices; i++) {
@@ -97,7 +107,8 @@ public class IncidenceMatrix<V, W extends Number> implements Graph<V, W>{
     @Override
     public void addVertex(V vertexName) {
         if (listOfVertices.contains(vertexName)) {
-            throw new ExistingVertexException("Such vertex already exists: " + vertexName.toString());
+            throw new ExistingVertexException("Such vertex already exists: "
+                                                + vertexName.toString());
         }
         listOfVertices.add(vertexName);
         incidenceMatrix.add(new ArrayList<>());
@@ -194,10 +205,17 @@ public class IncidenceMatrix<V, W extends Number> implements Graph<V, W>{
 
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
         IncidenceMatrix<?, ?> that = (IncidenceMatrix<?, ?>) object;
-        return totalVertices == that.totalVertices && totalEdges == that.totalEdges && Objects.equals(incidenceMatrix, that.incidenceMatrix) && Objects.equals(listOfVertices, that.listOfVertices) && Objects.equals(listOfEdges, that.listOfEdges);
+        return totalVertices == that.totalVertices && totalEdges == that.totalEdges
+                                && Objects.equals(incidenceMatrix, that.incidenceMatrix)
+                                && Objects.equals(listOfVertices, that.listOfVertices)
+                                && Objects.equals(listOfEdges, that.listOfEdges);
     }
 
     @Override

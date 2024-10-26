@@ -6,13 +6,21 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class AdjacencyList<V, W extends Number> implements Graph<V, W>{
+/**
+ * implementation of adjacency list.
+ * @param <V> type of vertices
+ * @param <W> type of edge's weight
+ */
+public class AdjacencyList<V, W extends Number> implements Graph<V, W> {
 
     private final ArrayList<ArrayList<Edge<V, W>>> adjacencyList;
     private final ArrayList<V> listOfVertices;
 
     private int totalVertices;
 
+    /**
+     * adjacency list's constructor.
+     */
     public AdjacencyList() {
         totalVertices = 0;
         adjacencyList = new ArrayList<>();
@@ -72,7 +80,8 @@ public class AdjacencyList<V, W extends Number> implements Graph<V, W>{
     @Override
     public void addVertex(V vertexName) {
         if (listOfVertices.contains(vertexName)) {
-            throw new ExistingVertexException("Such vertex already exists: " + vertexName.toString());
+            throw new ExistingVertexException("Such vertex already exists: "
+                                                + vertexName.toString());
         }
 
         listOfVertices.add(vertexName);
@@ -113,9 +122,9 @@ public class AdjacencyList<V, W extends Number> implements Graph<V, W>{
         int indexV = listOfVertices.indexOf(vertexName);
         ArrayList<Edge<V, W>> currList = adjacencyList.get(indexV);
 
-        for (Edge<V, W> Edge : currList) {
-            if (!adjacentVertices.contains(Edge.getVertexTo())) {
-                adjacentVertices.add(Edge.getVertexTo());
+        for (Edge<V, W> edge : currList) {
+            if (!adjacentVertices.contains(edge.getVertexTo())) {
+                adjacentVertices.add(edge.getVertexTo());
             }
         }
 
@@ -182,10 +191,16 @@ public class AdjacencyList<V, W extends Number> implements Graph<V, W>{
 
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
         AdjacencyList<?, ?> that = (AdjacencyList<?, ?>) object;
-        return totalVertices == that.totalVertices && Objects.equals(adjacencyList, that.adjacencyList) && Objects.equals(listOfVertices, that.listOfVertices);
+        return totalVertices == that.totalVertices
+                                && Objects.equals(adjacencyList, that.adjacencyList)
+                                && Objects.equals(listOfVertices, that.listOfVertices);
     }
 
     @Override

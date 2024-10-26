@@ -1,6 +1,13 @@
 package ru.nsu.kozlov;
 
+/**
+ * main class.
+ */
 public class Main {
+    /**
+     * main method.
+     * @param args some arguments
+     */
     public static void main(String[] args) {
         IncidenceMatrix<String, Integer> graph = new IncidenceMatrix<>();
 

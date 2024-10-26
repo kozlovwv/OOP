@@ -4,11 +4,21 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 
-public class TopologicalSort{
+/**
+ * implementation of topological sorting.
+ */
+public class TopologicalSort {
 
     static int[] used;
     static Deque<Integer> stack;
 
+    /**
+     * topological sorting.
+     * @param graph graph given to be sorted
+     * @return sorted order of vertices
+     * @param <V> type of vertices
+     * @param <W> type of edge's weight
+     */
     public static <V, W extends Number> ArrayList<V> topoSort(Graph<V, W> graph) {
         ArrayList<V> sortedArray = new ArrayList<>();
 
@@ -18,7 +28,7 @@ public class TopologicalSort{
 
         for (V vertex : allVertices) {
             if (used[allVertices.indexOf(vertex)] == 0) {
-                DFS(vertex, graph, allVertices);
+                dfs(vertex, graph, allVertices);
             }
         }
 
@@ -31,7 +41,16 @@ public class TopologicalSort{
         return sortedArray;
     }
 
-    public static <V, W extends Number> void DFS(V currVertex, Graph<V, W> graph, ArrayList<V> allVertices) {
+    /**
+     * 3-colored dfs.
+     * @param currVertex current vertex
+     * @param graph graph on which dfs is running
+     * @param allVertices list of all graph's vertices
+     * @param <V> type of vertices
+     * @param <W> type of edge's weight
+     */
+    public static <V, W extends Number> void dfs(V currVertex,
+                                                 Graph<V, W> graph, ArrayList<V> allVertices) {
         int index = allVertices.indexOf(currVertex);
 
         if (used[index] == 2) {
@@ -47,7 +66,7 @@ public class TopologicalSort{
         ArrayList<V> adjVertices = graph.getAdjacentVertices(currVertex);
 
         for (V newV : adjVertices) {
-            DFS(newV, graph, allVertices);
+            dfs(newV, graph, allVertices);
         }
 
         used[index] = 2; //black vertex
