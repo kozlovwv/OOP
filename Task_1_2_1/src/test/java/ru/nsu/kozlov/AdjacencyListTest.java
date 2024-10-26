@@ -1,13 +1,10 @@
 package ru.nsu.kozlov;
 
-import org.junit.jupiter.api.Test;
-
-import java.io.FileNotFoundException;
-import java.nio.file.Files;
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
 
 class AdjacencyListTest {
 
@@ -19,9 +16,9 @@ class AdjacencyListTest {
         graph.addVertex("B");
         graph.addVertex("C");
 
-        ArrayList<String> vS = graph.getListOfVertices();
+        ArrayList<String> vs = graph.getListOfVertices();
 
-        assertTrue(vS.get(0).equals("A") && vS.get(1).equals("B") && vS.get(2).equals("C"));
+        assertTrue(vs.get(0).equals("A") && vs.get(1).equals("B") && vs.get(2).equals("C"));
     }
 
     @Test
@@ -54,9 +51,9 @@ class AdjacencyListTest {
 
         graph.removeVertex("B");
 
-        ArrayList<String> vS = graph.getListOfVertices();
+        ArrayList<String> vs = graph.getListOfVertices();
 
-        assertTrue(vS.get(0).equals("A") && vS.get(1).equals("C"));
+        assertTrue(vs.get(0).equals("A") && vs.get(1).equals("C"));
     }
 
     @Test
@@ -176,10 +173,10 @@ class AdjacencyListTest {
 
         graph.readGraphFromFile("src/test/resources/file.txt", vertC, weightC);
 
-        ArrayList<String> vS = graph.getListOfVertices();
+        ArrayList<String> vs = graph.getListOfVertices();
 
-        boolean c1 = vS.get(0).equals("A") && vS.get(1).equals("B") && vS.get(2).equals("C")
-                                           && vS.get(3).equals("D") && vS.get(4).equals("E");
+        boolean c1 = vs.get(0).equals("A") && vs.get(1).equals("B") && vs.get(2).equals("C")
+                                           && vs.get(3).equals("D") && vs.get(4).equals("E");
 
         boolean c2 = graph.getEdge(0, 0).equals(new Edge<String, Integer>("A", "B", 10));
         boolean c3 = graph.getEdge(1, 0).equals(new Edge<String, Integer>("B", "A", 3));
@@ -203,11 +200,11 @@ class AdjacencyListTest {
         graph.addEdge("B", "A", 0);
         graph.addEdge("B", "C", 0);
 
-        assertEquals("adjacencyList:\n" +
-                "[{A, B, 0}]\n" +
-                "[{B, A, 0}, {B, C, 0}]\n" +
-                "[{C, B, 0}]\n" +
-                "totalVertices = 3\n" +
-                "listOfVertices = [A, B, C]", graph.toString());
+        assertEquals("adjacencyList:\n"
+                + "[{A, B, 0}]\n"
+                + "[{B, A, 0}, {B, C, 0}]\n"
+                + "[{C, B, 0}]\n"
+                + "totalVertices = 3\n"
+                + "listOfVertices = [A, B, C]", graph.toString());
     }
 }
