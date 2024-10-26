@@ -2,6 +2,7 @@ package ru.nsu.kozlov;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EdgeTest {
@@ -16,5 +17,18 @@ public class EdgeTest {
     void testEdgeEq1() {
         Edge<String, Integer> edge = new Edge<>("A", "B", 10);
         assertTrue(!edge.equals("edge"));
+    }
+
+    @Test
+    void testEdgeEq2() {
+        Edge<String, Integer> edge = new Edge<>("A", "B", 10);
+        assertTrue(!edge.equals(null));
+    }
+
+    @Test
+    void testEdgeHash3() {
+        Edge<String, Integer> edge = new Edge<>("A", "B", 10);
+        Edge<String, Integer> edge2 = new Edge<>("A", "B", 10);
+        assertEquals(edge.hashCode(), edge2.hashCode());
     }
 }
