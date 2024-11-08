@@ -1,10 +1,21 @@
 package ru.nsu.kozlov;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<String> arr = new ArrayList<String>(1000);
-        System.out.println(arr.get(52));
+        HashTable<String, Integer> hashTable = new HashTable<>();
+
+        hashTable.add("q", 1);
+        hashTable.add("w", 1);
+        hashTable.add("e", 1);
+
+        System.out.println(hashTable);
+
+        Iterator<Cell<String, Integer>> iterator = hashTable.iterator();
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }
