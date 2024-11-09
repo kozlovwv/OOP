@@ -17,6 +17,22 @@ public class HashTable<K, V> implements Iterable<Cell<K, V>> {
         hashTable = (LinkedList<Cell<K, V>>[]) new LinkedList<?>[capacity];
     }
 
+    public int getModCount() {
+        return modCount;
+    }
+
+    public int getNumberOfCells() {
+        return numberOfCells;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public LinkedList<Cell<K, V>>[] getHashTable() {
+        return hashTable;
+    }
+
     @SuppressWarnings("unchecked")
     private void extend() {
         LinkedList<Cell<K, V>>[] prevHashTable = hashTable;
@@ -65,7 +81,7 @@ public class HashTable<K, V> implements Iterable<Cell<K, V>> {
         numberOfCells++;
 
         if (numberOfCells == capacity) {
-            this.extend();
+            extend();
         }
 
         modCount++;
