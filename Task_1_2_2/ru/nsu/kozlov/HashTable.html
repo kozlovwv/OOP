@@ -130,6 +130,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>K</code> - type of keys in table</dd>
+<dd><code>V</code> - type of values in table</dd>
+</dl>
+<dl>
 <dt>All Implemented Interfaces:</dt>
 <dd><code>java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozlov">Cell</a>&lt;K,&#8203;V&gt;&gt;</code></dd>
 </dl>
@@ -137,6 +142,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">HashTable&lt;K,&#8203;V&gt;</span>
 extends java.lang.Object
 implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozlov">Cell</a>&lt;K,&#8203;V&gt;&gt;</pre>
+<div class="block">implementation of hashTable.</div>
 </li>
 </ul>
 </div>
@@ -158,7 +164,9 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">HashTable</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">hashTable's constructor.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -182,7 +190,10 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(K,V)">add</a></span>&#8203;(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key,
    <a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;value)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">adding pair key-value in table, if cell with such key already exists
+ value will be overwritten.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -192,7 +203,9 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="HashTable.html" title="type parameter in HashTable">V</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get(K)">get</a></span>&#8203;(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">getting value by key from table.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
@@ -222,7 +235,9 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasValue(K)">hasValue</a></span>&#8203;(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">checking for value for given key</div>
+</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.Iterator&lt;<a href="Cell.html" title="class in ru.nsu.kozlov">Cell</a>&lt;<a href="HashTable.html" title="type parameter in HashTable">K</a>,&#8203;<a href="HashTable.html" title="type parameter in HashTable">V</a>&gt;&gt;</code></td>
@@ -232,7 +247,9 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(K)">remove</a></span>&#8203;(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">removing pair key-value from table by using key.</div>
+</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
@@ -243,7 +260,9 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#update(K,V)">update</a></span>&#8203;(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key,
       <a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;value)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">updating value in pair key-value in table.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -283,6 +302,7 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <li class="blockList">
 <h4>HashTable</h4>
 <pre>public&nbsp;HashTable()</pre>
+<div class="block">hashTable's constructor.</div>
 </li>
 </ul>
 </li>
@@ -341,6 +361,13 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <h4>add</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;add&#8203;(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key,
                 <a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;value)</pre>
+<div class="block">adding pair key-value in table, if cell with such key already exists
+ value will be overwritten.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - key</dd>
+<dd><code>value</code> - value</dd>
+</dl>
 </li>
 </ul>
 <a id="remove(java.lang.Object)">
@@ -352,6 +379,11 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <li class="blockList">
 <h4>remove</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;remove&#8203;(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</pre>
+<div class="block">removing pair key-value from table by using key.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - key</dd>
+</dl>
 </li>
 </ul>
 <a id="get(java.lang.Object)">
@@ -363,6 +395,13 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <li class="blockList">
 <h4>get</h4>
 <pre class="methodSignature">public&nbsp;<a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;get&#8203;(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</pre>
+<div class="block">getting value by key from table.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - key</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>return value corresponding to this key</dd>
+</dl>
 </li>
 </ul>
 <a id="update(java.lang.Object,java.lang.Object)">
@@ -375,6 +414,12 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <h4>update</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;update&#8203;(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key,
                    <a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;value)</pre>
+<div class="block">updating value in pair key-value in table.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - key</dd>
+<dd><code>value</code> - new value</dd>
+</dl>
 </li>
 </ul>
 <a id="hasValue(java.lang.Object)">
@@ -386,6 +431,13 @@ implements java.lang.Iterable&lt;<a href="Cell.html" title="class in ru.nsu.kozl
 <li class="blockList">
 <h4>hasValue</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;hasValue&#8203;(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</pre>
+<div class="block">checking for value for given key</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - key</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if there's pair key-value for given key, false otherwise.</dd>
+</dl>
 </li>
 </ul>
 <a id="iterator()">
