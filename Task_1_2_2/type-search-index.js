@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.kozlov","l":"Cell"},{"p":"ru.nsu.kozlov","l":"HashTable"},{"p":"ru.nsu.kozlov","l":"Main"},{"p":"ru.nsu.kozlov","l":"NoSuchKeyException"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.kozlov","l":"Cell"},{"p":"ru.nsu.kozlov","l":"HashTable"},{"p":"ru.nsu.kozlov","l":"NoSuchKeyException"}]
