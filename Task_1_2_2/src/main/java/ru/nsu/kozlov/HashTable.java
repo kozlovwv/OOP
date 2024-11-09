@@ -7,6 +7,12 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
+/**
+ * implementation of hashTable.
+ *
+ * @param <K> type of keys in table
+ * @param <V> type of values in table
+ */
 public class HashTable<K, V> implements Iterable<Cell<K, V>> {
 
     private int modCount;
@@ -14,6 +20,9 @@ public class HashTable<K, V> implements Iterable<Cell<K, V>> {
     private int capacity;
     private LinkedList<Cell<K, V>>[] hashTable;
 
+    /**
+     * hashTable's constructor.
+     */
     @SuppressWarnings("unchecked")
     public HashTable() {
         modCount = 0;
@@ -56,6 +65,13 @@ public class HashTable<K, V> implements Iterable<Cell<K, V>> {
         }
     }
 
+    /**
+     * adding pair key-value in table, if cell with such key already exists
+     * value will be overwritten.
+     *
+     * @param key key
+     * @param value value
+     */
     public void add(K key, V value) {
         int hashIndex = key.hashCode() % capacity;
 
@@ -92,6 +108,11 @@ public class HashTable<K, V> implements Iterable<Cell<K, V>> {
         modCount++;
     }
 
+    /**
+     * removing pair key-value from table by using key.
+     *
+     * @param key key
+     */
     public void remove(K key) {
         int hashIndex = key.hashCode() % capacity;
 
@@ -116,6 +137,12 @@ public class HashTable<K, V> implements Iterable<Cell<K, V>> {
         throw new NoSuchKeyException("No such key: " + key);
     }
 
+    /**
+     * getting value by key from table.
+     *
+     * @param key key
+     * @return return value corresponding to this key
+     */
     public V get(K key) {
         int hashIndex = key.hashCode() % capacity;
 
@@ -134,6 +161,12 @@ public class HashTable<K, V> implements Iterable<Cell<K, V>> {
         throw new NoSuchKeyException("No such key: " + key);
     }
 
+    /**
+     * updating value in pair key-value in table.
+     *
+     * @param key key
+     * @param value new value
+     */
     public void update(K key, V value) {
         int hashIndex = key.hashCode() % capacity;
 
@@ -154,6 +187,12 @@ public class HashTable<K, V> implements Iterable<Cell<K, V>> {
         throw new NoSuchKeyException("No such key: " + key);
     }
 
+    /**
+     * checking for value for given key
+     *
+     * @param key key
+     * @return true if there's pair key-value for given key, false otherwise.
+     */
     public boolean hasValue(K key) {
         int hashIndex = key.hashCode() % capacity;
 
@@ -236,8 +275,12 @@ public class HashTable<K, V> implements Iterable<Cell<K, V>> {
     @SuppressWarnings("unchecked")
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
         HashTable<K, V> hashTable1 = (HashTable<K, V>) object;
 
         if (numberOfCells == hashTable1.numberOfCells) {
