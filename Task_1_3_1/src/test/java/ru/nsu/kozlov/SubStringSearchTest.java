@@ -49,9 +49,9 @@ class SubStringSearchTest {
             }
             FileWriter myWriter = new FileWriter("input.txt");
             for (long i = 0L; i < 7064091L; i++) { //size of file - 2GB
-                myWriter.write("我好好好好好好好好好好好好好好好好好好好好好好好好好好好好" +
-                        "好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好" +
-                        "好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好\n");
+                myWriter.write("我好好好好好好好好好好好好好好好好好好好好好好好好好好好好"
+                        + "好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好"
+                        + "好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好\n");
                 arrList.add(i * 102L);
             }
             myWriter.close();

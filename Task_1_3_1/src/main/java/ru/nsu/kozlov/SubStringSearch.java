@@ -7,8 +7,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * class implements method for finding substring in file.
+ */
 public class SubStringSearch {
-
     static ArrayList<Long> find(String fileName, String subString) {
         ArrayList<Long> indexes = new ArrayList<>();
         byte[] arr = subString.getBytes(StandardCharsets.UTF_8);
@@ -16,7 +18,8 @@ public class SubStringSearch {
         int bufferSize = arrLength * 2;
         long currPos = -1;
 
-        try (BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(fileName))) {
+        try (BufferedInputStream inputStream =
+                     new BufferedInputStream(new FileInputStream(fileName))) {
             byte[] buffer = new byte[bufferSize];
             byte[] helper1 = new byte[arrLength - 1];
             Arrays.fill(helper1, (byte) 0b10101010);
@@ -41,7 +44,8 @@ public class SubStringSearch {
                         }
                     }
                 }
-                helper1 = Arrays.copyOfRange(buffer, buffer.length - (arrLength - 1), buffer.length);
+                helper1 = Arrays.copyOfRange(buffer,
+                        buffer.length - (arrLength - 1), buffer.length);
             }
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file: " + e.getMessage());
