@@ -23,8 +23,8 @@ class SubStringSearchTest {
                 System.out.println("File already exists.");
             }
             FileWriter myWriter = new FileWriter("input.txt");
-            myWriter.write("test1\uD83C\uDF89\uD83C\uDF3A\uD83D"
-                    + "\uDD25\uD83C\uDF88\uD83C\uDF1Ftest1");
+            myWriter.write("test1🎉🌺🔥🎈🌟test1");
+            System.out.println();
             myWriter.close();
             assertEquals(arrList, SubStringSearch.find("input.txt", "test1"));
             if (myObj.delete()) {
@@ -78,50 +78,20 @@ class SubStringSearchTest {
             }
             FileWriter myWriter = new FileWriter("input.txt");
             for (long i = 0L; i < 4564259L; i++) { //size of file - 4GB
-                myWriter.write("\uD83D\uDE0A\uD83C\uDF1F\uD83C\uDF08\uD83C\uDF89\uD83C\uDF3A"
-                    + "\uD83C\uDFB6\uD83C\uDF1E\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F"
-                    + "\uD83C\uDF38\uD83C\uDF3B\uD83C\uDF08\uD83C\uDF1F\uD83C\uDF1F\uD83C\uDF08"
-                    + "\uD83C\uDF89\uD83C\uDF3A\uD83C\uDFB6\uD83C\uDF1E\uD83E\uDD8B\uD83C\uDF3C"
-                    + "\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B\uD83C\uDF08\uD83C\uDF1F"
-                    + "\uD83C\uDF1F\uD83C\uDF08\uD83C\uDF89\uD83C\uDF3A\uD83C\uDFB6\uD83C\uDF1E"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83C\uDF08\uD83C\uDF1F\uD83C\uDF1F\uD83C\uDF08\uD83C\uDF89\uD83C\uDF3A"
-                    + "\uD83C\uDFB6\uD83C\uDF1E\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F"
-                    + "\uD83C\uDF38\uD83C\uDF3B\uD83C\uDF08\uD83C\uDF1F\uD83C\uDF1F\uD83C\uDF08"
-                    + "\uD83C\uDF89\uD83C\uDF3A\uD83C\uDFB6\uD83C\uDF1E\uD83E\uDD8B\uD83C\uDF3C"
-                    + "\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B\uD83C\uDF08\uD83C\uDF1F"
-                    + "\uD83C\uDF1F\uD83C\uDF08\uD83C\uDF89\uD83C\uDF3A\uD83C\uDFB6\uD83C\uDF1E"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83C\uDF08\uD83C\uDF1F\uD83C\uDF1F\uD83C\uDF08\uD83C\uDF89\uD83C\uDF3A"
-                    + "\uD83C\uDFB6\uD83C\uDF1E\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F"
-                    + "\uD83C\uDF38\uD83C\uDF3B\uD83C\uDF08\uD83C\uDF1F\uD83C\uDF1F\uD83C\uDF08"
-                    + "\uD83C\uDF89\uD83C\uDF3A\uD83C\uDFB6\uD83C\uDF1E\uD83E\uDD8B\uD83C\uDF3C"
-                    + "\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B\uD83C\uDF08\uD83C\uDF1F"
-                    + "\uD83C\uDF1F\uD83C\uDF08\uD83C\uDF89\uD83C\uDF3A\uD83C\uDFB6\uD83C\uDF1E"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    + "\uD83E\uDD8B\uD83C\uDF3C\uD83D\uDCAB\uD83C\uDF3F\uD83C\uDF38\uD83C\uDF3B"
-                    +"\uD83C\uDF08\uD83C\uDF1F\n");
+                myWriter.write("😊🌟🌈🎉🌺🎶🌞🦋🌼💫🌿🌸🌻🌈🌟🌟🌈🎉🌺"
+                        + "🎶🌞🦋🌼💫🌿🌸🌻🌈🌟🌟🌈🎉🌺🎶🌞🦋🌼💫🌿🌸🌻🌈🌟🌟🌈"
+                        + "🎉🌺🎶🌞🦋🌼💫🌿🌸🌻🌈🌟🌟🌈🎉🌺🎶🌞🦋🌼💫🌿🌸🌻🌈🌟"
+                        + "🌟🌈🎉🌺🎶🌞🦋🌼💫🌿🌸🌻🌈🌟🌟🌈🎉🌺🎶🌞🦋🌼💫🌿🌸🌻"
+                        + "🌈🌟🌟🌈🎉🌺🎶🌞🦋🌼💫🌿🌸🌻🌈🌟🌟🌈🎉🌺🎶🌞🦋🌼💫🌿"
+                        + "🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻"
+                        + "🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻🦋🌼"
+                        + "💫🌿🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿"
+                        + "🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻🦋🌼💫🌿🌸🌻"
+                        + "🦋🌼💫🌿🌸🌻🌈🌟\n");
                 arrList.add(i * 236);
             }
             myWriter.close();
-            assertEquals(arrList, SubStringSearch.find("input.txt", "\uD83D\uDE0A"));
+            assertEquals(arrList, SubStringSearch.find("input.txt", "😊"));
             if (myObj.delete()) {
                 System.out.println("Deleted the file: " + myObj.getName());
             } else {
@@ -132,3 +102,4 @@ class SubStringSearchTest {
         }
     }
 }
+
