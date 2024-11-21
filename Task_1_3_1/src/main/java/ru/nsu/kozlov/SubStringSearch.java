@@ -58,7 +58,7 @@ public class SubStringSearch {
         boolean cond1 = (currByte >> 7) == 0b00000000;
         boolean cond2 = (currByte & 0b11110000) == 0b11110000;
         boolean cond3 = (currByte & 0b11100000) == 0b11100000;
-        boolean cond4 = (currByte & 0b11110000) == 0b11110000;
+        boolean cond4 = (currByte & 0b11000000) == 0b11000000;
         return cond1 || cond2 || cond3 || cond4;
     }
 }
