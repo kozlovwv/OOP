@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.kozlov.enums","l":"AssessmentType"},{"p":"ru.nsu.kozlov.enums","l":"EducationForm"},{"p":"ru.nsu.kozlov","l":"Grade"},{"p":"ru.nsu.kozlov.enums","l":"GradeType"},{"p":"ru.nsu.kozlov","l":"RecordBook"},{"p":"ru.nsu.kozlov","l":"Session"}]
