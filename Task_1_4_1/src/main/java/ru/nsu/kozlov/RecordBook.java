@@ -20,6 +20,7 @@ public class RecordBook {
 
     /**
      * record book constructor.
+     *
      * @param studentName name of student
      * @param educationForm paid or budget
      */
@@ -48,6 +49,8 @@ public class RecordBook {
         if (numbersOfGrades[indexOfType] < maxNumbersOfGrades[indexOfType]) {
             if (sessions.get(sessionNumber).addGrade(grade) == 0) {
                 numbersOfGrades[indexOfType]++;
+            } else {
+                throw new GradesNumberExceededException("Can't add new grade");
             }
         }
     }

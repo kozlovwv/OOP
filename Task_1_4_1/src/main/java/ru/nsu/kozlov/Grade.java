@@ -35,6 +35,7 @@ public class Grade {
 
     /**
      * getting grade by its string enum(string) representation.
+     *
      * @return grade like number
      */
     public int getGrade() {
