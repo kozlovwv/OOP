@@ -42,6 +42,9 @@ public class Grade {
             case FAILED:
                 value = 0;
                 break;
+            default:
+                value = -1;
+                break;
         }
         return value;    
     }

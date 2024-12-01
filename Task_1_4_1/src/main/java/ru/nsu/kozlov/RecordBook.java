@@ -1,11 +1,10 @@
 package ru.nsu.kozlov;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import ru.nsu.kozlov.enums.AssessmentType;
 import ru.nsu.kozlov.enums.EducationForm;
 import ru.nsu.kozlov.enums.GradeType;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class RecordBook {
     private final static int totalMarks = 88;
@@ -95,8 +94,8 @@ public class RecordBook {
 
         HashMap<String, Grade> hashMapGrades = new HashMap<>();
 
-        for (Session session: sessions) {
-            for (Grade grade: session.getGrades()) {
+        for (Session session : sessions) {
+            for (Grade grade : session.getGrades()) {
                 if (grade.getAssessmentType() != AssessmentType.PASS) {
                     hashMapGrades.put(grade.getSubjectName(), grade);
                 }

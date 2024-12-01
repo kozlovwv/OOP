@@ -1,11 +1,13 @@
 package ru.nsu.kozlov;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 import ru.nsu.kozlov.enums.AssessmentType;
 import ru.nsu.kozlov.enums.EducationForm;
 import ru.nsu.kozlov.enums.GradeType;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class RecordBookTest {
 

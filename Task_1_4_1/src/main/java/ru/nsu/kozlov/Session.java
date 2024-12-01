@@ -1,8 +1,7 @@
 package ru.nsu.kozlov;
 
-import ru.nsu.kozlov.enums.AssessmentType;
-
 import java.util.ArrayList;
+import ru.nsu.kozlov.enums.AssessmentType;
 
 public class Session {
     private int sessionNumber;
