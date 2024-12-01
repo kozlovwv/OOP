@@ -133,6 +133,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Grade</span>
 extends java.lang.Object</pre>
+<div class="block">implementation of grade with fields for number of session,
+ name of subject, type of assessment.</div>
 </li>
 </ul>
 </div>
@@ -157,7 +159,9 @@ extends java.lang.Object</pre>
      java.lang.String&nbsp;subjectName,
      <a href="enums/AssessmentType.html" title="enum in ru.nsu.kozlov.enums">AssessmentType</a>&nbsp;assessmentType,
      <a href="enums/GradeType.html" title="enum in ru.nsu.kozlov.enums">GradeType</a>&nbsp;grade)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">grade constructor.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -190,7 +194,9 @@ extends java.lang.Object</pre>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGrade()">getGrade</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">getting grade by its string enum(string) representation.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
@@ -236,6 +242,14 @@ extends java.lang.Object</pre>
              java.lang.String&nbsp;subjectName,
              <a href="enums/AssessmentType.html" title="enum in ru.nsu.kozlov.enums">AssessmentType</a>&nbsp;assessmentType,
              <a href="enums/GradeType.html" title="enum in ru.nsu.kozlov.enums">GradeType</a>&nbsp;grade)</pre>
+<div class="block">grade constructor.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sessionNumber</code> - number of session</dd>
+<dd><code>subjectName</code> - name of subject</dd>
+<dd><code>assessmentType</code> - type of assessment</dd>
+<dd><code>grade</code> - grade</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -264,6 +278,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getGrade</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getGrade()</pre>
+<div class="block">getting grade by its string enum(string) representation.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>grade like number</dd>
+</dl>
 </li>
 </ul>
 <a id="getEnumGrade()">
