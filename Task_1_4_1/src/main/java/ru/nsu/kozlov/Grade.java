@@ -22,14 +22,28 @@ public class Grade {
     }
 
     public int getGrade() {
-        return switch (grade) {
-            case FIVE -> 5;
-            case FOUR -> 4;
-            case THREE -> 3;
-            case TWO -> 2;
-            case PASSED -> 1;
-            case FAILED -> 0;
-        };
+        int value = 0;
+        switch (grade) {
+            case FIVE:
+                value = 5;
+                break;
+            case FOUR:
+                value = 4;
+                break;
+            case THREE:
+                value = 3;
+                break;
+            case TWO:
+                value = 2;
+                break;
+            case PASSED:
+                value = 1;
+                break;
+            case FAILED:
+                value = 0;
+                break;
+        }
+        return value;    
     }
 
     public GradeType getEnumGrade() {
