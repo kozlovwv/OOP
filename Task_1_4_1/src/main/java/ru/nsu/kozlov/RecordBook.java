@@ -6,8 +6,11 @@ import ru.nsu.kozlov.enums.AssessmentType;
 import ru.nsu.kozlov.enums.EducationForm;
 import ru.nsu.kozlov.enums.GradeType;
 
+/**
+ * implementation of student's record book.
+ */
 public class RecordBook {
-    private final static int totalMarks = 88;
+    private final int totalMarks = 88;
     private String studentName;
     private ArrayList<Session> sessions;
     private EducationForm educationForm;
@@ -15,6 +18,11 @@ public class RecordBook {
     private int[] maxNumbersOfGrades;
     private int[] numbersOfGrades;
 
+    /**
+     * record book constructor.
+     * @param studentName name of student
+     * @param educationForm paid or budget
+     */
     public RecordBook(String studentName, EducationForm educationForm) {
         this.studentName = studentName;
         this.sessions = new ArrayList<>();

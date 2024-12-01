@@ -3,6 +3,9 @@ package ru.nsu.kozlov;
 import java.util.ArrayList;
 import ru.nsu.kozlov.enums.AssessmentType;
 
+/**
+ * implementation of session.
+ */
 public class Session {
     private int sessionNumber;
     private ArrayList<Grade> grades;
@@ -46,13 +49,5 @@ public class Session {
 
     public int getNumberOfGrades() {
         return grades.size();
-    }
-
-    public int[] getGradesCountArray() {
-        return gradesCount;
-    }
-
-    public int[] getGradesMaxCountArray() {
-        return gradesMaxCount;
     }
 }

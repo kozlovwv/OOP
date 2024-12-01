@@ -1,5 +1,8 @@
 package ru.nsu.kozlov.enums;
 
+/**
+ * types of assessment.
+ */
 public enum AssessmentType {
     TASK,
     TEST,
