@@ -3,6 +3,7 @@ package ru.nsu.kozlov;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 import ru.nsu.kozlov.enums.AssessmentType;
@@ -25,6 +26,15 @@ class RecordBookTest {
         assertEquals(recordBook.getGradePointAverage(), ((double) (5 * 4 + 4 * 2) / 6));
         assertFalse(recordBook.possibleToGetIncreasedScholarship());
         assertTrue(recordBook.possibleToGetRedDiploma());
+
+        try {
+            recordBook.addGrade(new Grade(1, "Q", AssessmentType.EXAM, GradeType.FIVE));
+            recordBook.addGrade(new Grade(1, "W", AssessmentType.EXAM, GradeType.FIVE));
+        } catch (GradesNumberExceededException exception) {
+            return;
+        }
+        
+        fail();
     }
 
     @Test
