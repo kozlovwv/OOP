@@ -11,6 +11,7 @@ import ru.nsu.kozlov.enums.GradeType;
  */
 public class RecordBook {
     private final int totalMarks = 88;
+    private final int totalSessions = 8;
     private String studentName;
     private ArrayList<Session> sessions;
     private EducationForm educationForm;
@@ -75,7 +76,7 @@ public class RecordBook {
 
     boolean possibleToGetBudget() {
         int lastSessionNumber = 0;
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < totalSessions; i++) {
             if (sessions.get(i).getNumberOfGrades() == 0) {
                 lastSessionNumber = i;
                 break;
@@ -138,7 +139,7 @@ public class RecordBook {
 
     boolean possibleToGetIncreasedScholarship() {
         int lastSessionNumber = 0;
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < totalSessions; i++) {
             if (sessions.get(i).getNumberOfGrades() == 0) {
                 lastSessionNumber = i;
                 break;
