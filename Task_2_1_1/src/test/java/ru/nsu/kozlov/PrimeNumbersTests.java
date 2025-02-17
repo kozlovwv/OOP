@@ -1,11 +1,13 @@
 package ru.nsu.kozlov;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
@@ -246,5 +248,21 @@ public class PrimeNumbersTests {
         assertTrue(CalculationWithParallelStreams.hasCompositeNumber(numbers));
         end = System.currentTimeMillis();
         System.out.println("UltraBig CalculationWithParallelStreams: " + (end - start));
+    }
+
+    @Test
+    void testInterface() {
+        assertFalse(FindCompositeNumber.hasCompositeNumber(Arrays.asList(1, 2, 3, 4, 5)));
+    }
+
+    @Test
+    void testOnlyPrime() {
+        assertFalse(SequentialCalculation.hasCompositeNumber(Arrays.asList(2, 3, 5, 7, 11)));
+    }
+
+    @Test
+    void testThreadsMoreThanSize() {
+        ParallelCalculationWithThreads.numberThreads = 10000;
+        assertFalse(ParallelCalculationWithThreads.hasCompositeNumber(Arrays.asList(2, 3, 5, 7, 11)));
     }
 }
