@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.kozlov","l":"Main"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.kozlov","l":"CalculationWithParallelStreams"},{"p":"ru.nsu.kozlov","l":"FindCompositeNumber"},{"p":"ru.nsu.kozlov","l":"ParallelCalculationWithThreads"},{"p":"ru.nsu.kozlov","l":"Prime"},{"p":"ru.nsu.kozlov","l":"SequentialCalculation"}];updateSearchResults();
