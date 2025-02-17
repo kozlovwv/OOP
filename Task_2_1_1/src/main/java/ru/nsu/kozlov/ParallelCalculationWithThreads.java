@@ -2,10 +2,17 @@ package ru.nsu.kozlov;
 
 import java.util.List;
 
-public class ParallelCalculationWithThreads implements FindCompositeNumber{
+/**
+ * Parallel calculation with threads.
+ */
+public class ParallelCalculationWithThreads implements FindCompositeNumber {
     private static boolean hasComposite;
     public static int numberThreads = 20;
 
+    /**
+     * @param numbers - list of integer positive numbers.
+     * @return true - if list has a compound number, false - otherwise.
+     */
     public static boolean hasCompositeNumber(List<Integer> numbers) {
         hasComposite = false;
 
@@ -25,7 +32,8 @@ public class ParallelCalculationWithThreads implements FindCompositeNumber{
 
                 int elementsPerThread = numbers.size() / numberThreads;
                 int startIndex = threadIndex * elementsPerThread;
-                int lastIndex = (threadIndex == numberThreads - 1) ? numbers.size() : (threadIndex + 1) * elementsPerThread;
+                int lastIndex = (threadIndex == numberThreads - 1) ? numbers.size() :
+                        (threadIndex + 1) * elementsPerThread;
 
                 for (int j = startIndex; j < lastIndex; j++) {
                     partialRes |= Prime.isNotPrime(numbers.get(j));
