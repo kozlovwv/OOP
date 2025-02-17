@@ -259,8 +259,13 @@ public class PrimeNumbersTests {
     }
 
     @Test
-    void testOnlyPrime() {
+    void testOnlyPrimeForSequentialCalculation() {
         assertFalse(SequentialCalculation.hasCompositeNumber(Arrays.asList(2, 3, 5, 7, 11)));
+    }
+
+    @Test
+    void testOnlyPrimeForCalculationWithParallelStreams() {
+        assertFalse(CalculationWithParallelStreams.hasCompositeNumber(Arrays.asList(2, 3, 5, 7, 11)));
     }
 
     @Test
