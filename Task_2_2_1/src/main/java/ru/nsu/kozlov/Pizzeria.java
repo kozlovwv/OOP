@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Implementation of Pizzeria with bakers-threads and deliveryMen-threads.
+ */
 public class Pizzeria {
     private Baker[] bakers;
     private DeliveryMan[] deliveryMen;
@@ -14,6 +17,11 @@ public class Pizzeria {
     private int numberOfReceivedPizza;
     private int numberOfCompletedPizza;
 
+    /**
+     * Pizzeria constructor.
+     *
+     * @param path path to json config file.
+     */
     public Pizzeria(String path) {
         int warehouseCapacity;
         int[] bakersConfig;
@@ -48,7 +56,7 @@ public class Pizzeria {
         numberOfCompletedPizza = numberOfReceivedPizza = 0;
         isOpened = true;
 
-        Order.setZeroID();
+        Order.setZeroId();
     }
 
     public void open() {
@@ -61,6 +69,11 @@ public class Pizzeria {
         System.out.println("Pizzeria is CLOSED: " + MyTimer.getTime());
     }
 
+    /**
+     * Adding order to the queue in the pizzeria.
+     *
+     * @param order new order.
+     */
     public void addOrder(Order order) {
         if (isOpened) {
             numberOfReceivedPizza += order.getPizzaAmount();
@@ -82,14 +95,20 @@ public class Pizzeria {
         return numberOfReceivedPizza;
     }
 
+    /**
+     * Closing pizzeria with stopping bakers and deliveryMen after finishing all orders
+     * which was in the queue.
+     */
     public void shutdown() {
-        while (numberOfReceivedPizza > this.getNumberOfCompletedPizza());
+        while (numberOfReceivedPizza > this.getNumberOfCompletedPizza()) {
+            continue;
+        }
 
         for (Baker baker : bakers) {
             baker.interrupt();
         }
 
-        for (DeliveryMan deliveryMan: deliveryMen) {
+        for (DeliveryMan deliveryMan : deliveryMen) {
             deliveryMan.interrupt();
         }
 

@@ -1,5 +1,8 @@
 package ru.nsu.kozlov;
 
+/**
+ * Implementation of delivery man.
+ */
 public class DeliveryMan extends Thread {
     private final int deliveryTime;
     private final int capacity;
@@ -7,6 +10,13 @@ public class DeliveryMan extends Thread {
     private final Pizzeria pizzeria;
     private Order order;
 
+    /**
+     * Delivery man constructor.
+     *
+     * @param warehouse warehouse where delivery man will take cooked pizzas.
+     * @param capacity capacity of the delivery man's bag.
+     * @param pizzeria pizzeria where he works.
+     */
     public DeliveryMan(Warehouse warehouse, int capacity, Pizzeria pizzeria) {
         this.pizzeria = pizzeria;
         this.warehouse = warehouse;
@@ -31,8 +41,9 @@ public class DeliveryMan extends Thread {
             }
 
             order.setOrderState(OrderState.DELIVERED);
-            System.out.println("Order " + order.getId() + ". Amount = " + order.getPizzaAmount() + " " +
-                    order.getOrderState() + " " + MyTimer.getTime());
+            System.out.println("Order " + order.getId() + ". Amount = "
+                    + order.getPizzaAmount() + " "
+                    + order.getOrderState() + " " + MyTimer.getTime());
             pizzeria.increaseCompletedPizza(order.getPizzaAmount());
             order = null;
         }

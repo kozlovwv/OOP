@@ -1,5 +1,8 @@
 package ru.nsu.kozlov;
 
+/**
+ * JSON configuration.
+ */
 public class Configuration {
     private int warehouseCapacity;
     private int[] bakers;

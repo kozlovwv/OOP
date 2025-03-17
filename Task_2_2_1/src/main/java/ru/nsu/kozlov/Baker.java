@@ -1,11 +1,21 @@
 package ru.nsu.kozlov;
 
+/**
+ * Implementation of baker.
+ */
 public class Baker extends Thread {
     private final int cookTime;
     private final QueueWithOrders queueWithOrders;
     private final Warehouse warehouse;
     private Order order;
 
+    /**
+     * Baker's constructor.
+     *
+     * @param queueWithOrders queue with orders.
+     * @param warehouse warehouse
+     * @param cookTime time to make 1 pizza.
+     */
     public Baker(QueueWithOrders queueWithOrders, Warehouse warehouse, int cookTime) {
         this.queueWithOrders = queueWithOrders;
         this.cookTime = cookTime;

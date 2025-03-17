@@ -1,5 +1,8 @@
 package ru.nsu.kozlov;
 
+/**
+ * Timer.
+ */
 public class MyTimer {
     public static long startTime;
 
