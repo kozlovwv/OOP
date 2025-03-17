@@ -38,4 +38,21 @@ class MainTest {
 
         assertEquals(pizzeria.getNumberOfCompletedPizza(), pizzeria.getNumberOfReceivedPizza());
     }
+
+    @Test
+    void test3() {
+        MyTimer.startTime = System.currentTimeMillis();
+
+        Pizzeria pizzeria = new Pizzeria("src/test/resources/Config_For_Test_3.json");
+
+        pizzeria.addOrder(new Order(5));
+        pizzeria.addOrder(new Order(10));
+        pizzeria.addOrder(new Order(6));
+        pizzeria.addOrder(new Order(13));
+        pizzeria.addOrder(new Order(2));
+
+        pizzeria.shutdown();
+
+        assertEquals(pizzeria.getNumberOfCompletedPizza(), pizzeria.getNumberOfReceivedPizza());
+    }
 }
