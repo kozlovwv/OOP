@@ -18,7 +18,7 @@ public class Order {
         this.orderState = OrderState.IN_QUEUE;
         this.id = currentMaxID++;
     }
-    
+
     public Order(int pizzaAmount, int id, OrderState state) {
         this.pizzaAmount = pizzaAmount;
         this.orderState = state;
