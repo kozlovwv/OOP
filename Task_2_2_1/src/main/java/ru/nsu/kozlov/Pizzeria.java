@@ -1,5 +1,9 @@
 package ru.nsu.kozlov;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.IOException;
+
 public class Pizzeria {
     private Baker[] bakers;
     private DeliveryMan[] deliveryMen;
@@ -7,22 +11,41 @@ public class Pizzeria {
     private Warehouse warehouse;
     private boolean isOpened;
 
-    public Pizzeria(int bakersNumber, int deliveryMenNumber) {
+    private int numberOfReceivedPizza;
+    private int numberOfCompletedPizza;
+
+    public Pizzeria(String path) {
+        int warehouseCapacity;
+        int[] bakersConfig;
+        int[] deliveryMenConfig;
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            File file = new File(path);
+            Configuration config = mapper.readValue(file, Configuration.class);
+            warehouseCapacity = config.getWarehouseCapacity();
+            bakersConfig = config.getBakers();
+            deliveryMenConfig = config.getDeliveryMen();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         queueWithOrders = new QueueWithOrders();
-        warehouse = new Warehouse(30);
+        warehouse = new Warehouse(warehouseCapacity);
 
-        bakers = new Baker[bakersNumber];
-        for (Baker baker: bakers) {
-            baker = new Baker(queueWithOrders, warehouse, 3);
-            baker.start();
+        bakers = new Baker[bakersConfig.length];
+        for (int i = 0; i < bakersConfig.length; i++) {
+            bakers[i] = new Baker(queueWithOrders, warehouse, bakersConfig[i]);
+            bakers[i].start();
         }
 
-        deliveryMen = new DeliveryMan[deliveryMenNumber];
-        for (DeliveryMan deliveryMan: deliveryMen) {
-            deliveryMan = new DeliveryMan(warehouse, 10, 1);
-            deliveryMan.start();
+        deliveryMen = new DeliveryMan[deliveryMenConfig.length];
+        for (int i = 0; i < deliveryMenConfig.length; i++) {
+            deliveryMen[i] = new DeliveryMan(warehouse, deliveryMenConfig[i], this);
+            deliveryMen[i].start();
         }
 
+        numberOfCompletedPizza = numberOfReceivedPizza = 0;
         isOpened = true;
     }
 
@@ -38,9 +61,32 @@ public class Pizzeria {
 
     public void addOrder(Order order) {
         if (isOpened) {
+            numberOfReceivedPizza += order.getPizzaAmount();
             queueWithOrders.takeOrder(order);
         } else {
             System.out.println("Order " + order.getId() + " ignored." + " " + MyTimer.getTime());
         }
+    }
+
+    public synchronized void increaseCompletedPizza(int amount) {
+        numberOfCompletedPizza += amount;
+    }
+
+    public synchronized int getNumberOfCompletedPizza() {
+        return numberOfCompletedPizza;
+    }
+
+    public void shutdown() {
+        while (numberOfReceivedPizza > this.getNumberOfCompletedPizza());
+
+        for (Baker baker : bakers) {
+            baker.interrupt();
+        }
+
+        for (DeliveryMan deliveryMan: deliveryMen) {
+            deliveryMan.interrupt();
+        }
+
+        System.out.println("Мы обанкротились! :(");
     }
 }

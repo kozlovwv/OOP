@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class QueueWithOrders {
-    private Queue<Order> queue;
+    private final Queue<Order> queue;
 
     public QueueWithOrders() {
         this.queue = new LinkedList<>();
@@ -24,8 +24,8 @@ public class QueueWithOrders {
             try {
                 wait();
             } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                System.out.println("Поток прерван");
+                System.out.println("Пекарь закончил работу!");
+                return null;
             }
         }
         Order order = queue.poll();

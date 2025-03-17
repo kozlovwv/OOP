@@ -2,7 +2,7 @@ package ru.nsu.kozlov;
 
 public class Order {
     private int pizzaAmount;
-    private int id;
+    private final int id;
     private OrderState orderState;
     private static int currentMaxID = 0;
 

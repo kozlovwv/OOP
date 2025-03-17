@@ -4,9 +4,9 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class Warehouse {
-    private Deque<Order> queue;
+    private final Deque<Order> queue;
     private int currentAmountOfPizzas;
-    private int totalAmountOfPizzas;
+    private final int totalAmountOfPizzas;
 
     public Warehouse(int totalAmountOfPizzas) {
         this.queue = new LinkedList<>();
@@ -38,8 +38,8 @@ public class Warehouse {
             try {
                 wait();
             } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                System.out.println("Поток прерван");
+                System.out.println("Курьер закончил работу! ");
+                return null;
             }
         }
 

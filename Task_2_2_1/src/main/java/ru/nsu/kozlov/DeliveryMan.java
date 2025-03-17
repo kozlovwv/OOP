@@ -1,15 +1,17 @@
 package ru.nsu.kozlov;
 
 public class DeliveryMan extends Thread {
-    private int deliveryTime;
-    private int capacity;
-    private Warehouse warehouse;
+    private final int deliveryTime;
+    private final int capacity;
+    private final Warehouse warehouse;
+    private final Pizzeria pizzeria;
     private Order order;
 
-    public DeliveryMan(Warehouse warehouse, int capacity, int deliveryTime) {
+    public DeliveryMan(Warehouse warehouse, int capacity, Pizzeria pizzeria) {
+        this.pizzeria = pizzeria;
         this.warehouse = warehouse;
         this.capacity = capacity;
-        this.deliveryTime = deliveryTime;
+        this.deliveryTime = 1;
         this.order = null;
     }
 
@@ -17,6 +19,10 @@ public class DeliveryMan extends Thread {
     public void run() {
         while (true) {
             order = warehouse.giveOrderAway(capacity);
+
+            if (order == null) {
+                break;
+            }
 
             try {
                 Thread.sleep(1000L * deliveryTime);
@@ -27,6 +33,7 @@ public class DeliveryMan extends Thread {
             order.setOrderState(OrderState.DELIVERED);
             System.out.println("Order " + order.getId() + ". Amount = " + order.getPizzaAmount() + " " +
                     order.getOrderState() + " " + MyTimer.getTime());
+            pizzeria.increaseCompletedPizza(order.getPizzaAmount());
             order = null;
         }
     }
