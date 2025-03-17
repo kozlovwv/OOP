@@ -37,4 +37,8 @@ public class Order {
     public void setOrderState(OrderState orderState) {
         this.orderState = orderState;
     }
+
+    public static void setZeroID() {
+        currentMaxID = 0;
+    }
 }

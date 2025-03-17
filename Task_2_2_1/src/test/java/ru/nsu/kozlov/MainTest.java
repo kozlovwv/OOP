@@ -1,13 +1,41 @@
 package ru.nsu.kozlov;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
 class MainTest {
     @Test
-    void test() {
-        Main.main(null);
-        assertTrue(true);
+    void test1() {
+        MyTimer.startTime = System.currentTimeMillis();
+
+        Pizzeria pizzeria = new Pizzeria("src/test/resources/Config_For_Test_1.json");
+
+        pizzeria.addOrder(new Order(1));
+        pizzeria.addOrder(new Order(1));
+        pizzeria.addOrder(new Order(1));
+        pizzeria.addOrder(new Order(1));
+        pizzeria.addOrder(new Order(1));
+
+        pizzeria.shutdown();
+
+        assertEquals(pizzeria.getNumberOfCompletedPizza(), pizzeria.getNumberOfReceivedPizza());
+    }
+
+    @Test
+    void test2() {
+        MyTimer.startTime = System.currentTimeMillis();
+
+        Pizzeria pizzeria = new Pizzeria("src/test/resources/Config_For_Test_2.json");
+
+        pizzeria.addOrder(new Order(3));
+        pizzeria.addOrder(new Order(3));
+        pizzeria.addOrder(new Order(3));
+        pizzeria.addOrder(new Order(3));
+        pizzeria.addOrder(new Order(3));
+
+        pizzeria.shutdown();
+
+        assertEquals(pizzeria.getNumberOfCompletedPizza(), pizzeria.getNumberOfReceivedPizza());
     }
 }

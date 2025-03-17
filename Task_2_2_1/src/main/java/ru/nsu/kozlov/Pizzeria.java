@@ -47,6 +47,8 @@ public class Pizzeria {
 
         numberOfCompletedPizza = numberOfReceivedPizza = 0;
         isOpened = true;
+
+        Order.setZeroID();
     }
 
     public void open() {
@@ -74,6 +76,10 @@ public class Pizzeria {
 
     public synchronized int getNumberOfCompletedPizza() {
         return numberOfCompletedPizza;
+    }
+
+    public int getNumberOfReceivedPizza() {
+        return numberOfReceivedPizza;
     }
 
     public void shutdown() {
