@@ -76,6 +76,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Warehouse</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Implementation of warehouse.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -88,7 +89,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int)" class="member-name-link">Warehouse</a><wbr>(int&nbsp;totalAmountOfPizzas)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Warehouse's constructor</div>
+</div>
 </div>
 </section>
 </li>
@@ -105,10 +108,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Order.html" title="class in ru.nsu.kozlov">Order</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#giveOrderAway(int)" class="member-name-link">giveOrderAway</a><wbr>(int&nbsp;capacity)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Taking order (or part of it) from warehouse.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#takeOrder(ru.nsu.kozlov.Order)" class="member-name-link">takeOrder</a><wbr>(<a href="Order.html" title="class in ru.nsu.kozlov">Order</a>&nbsp;order)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Taking order in warehouse if it has enough space.</div>
+</div>
 </div>
 </div>
 </div>
@@ -130,6 +137,11 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(int)">
 <h3>Warehouse</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Warehouse</span><wbr><span class="parameters">(int&nbsp;totalAmountOfPizzas)</span></div>
+<div class="block">Warehouse's constructor</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>totalAmountOfPizzas</code> - capacity of warehouse.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -144,12 +156,24 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="takeOrder(ru.nsu.kozlov.Order)">
 <h3>takeOrder</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">takeOrder</span><wbr><span class="parameters">(<a href="Order.html" title="class in ru.nsu.kozlov">Order</a>&nbsp;order)</span></div>
+<div class="block">Taking order in warehouse if it has enough space.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>order</code> - order.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="giveOrderAway(int)">
 <h3>giveOrderAway</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Order.html" title="class in ru.nsu.kozlov">Order</a></span>&nbsp;<span class="element-name">giveOrderAway</span><wbr><span class="parameters">(int&nbsp;capacity)</span></div>
+<div class="block">Taking order (or part of it) from warehouse.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>capacity</code> - capacity of delivery man's bag.</dd>
+<dt>Returns:</dt>
+<dd>order.</dd>
+</dl>
 </section>
 </li>
 </ul>

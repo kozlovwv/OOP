@@ -76,6 +76,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">QueueWithOrders</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Implementation of queue with orders.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -105,10 +106,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Order.html" title="class in ru.nsu.kozlov">Order</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#giveOrderAway()" class="member-name-link">giveOrderAway</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Giving order to baker.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#takeOrder(ru.nsu.kozlov.Order)" class="member-name-link">takeOrder</a><wbr>(<a href="Order.html" title="class in ru.nsu.kozlov">Order</a>&nbsp;order)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Taking order to the queue.</div>
+</div>
 </div>
 </div>
 </div>
@@ -144,12 +149,22 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="takeOrder(ru.nsu.kozlov.Order)">
 <h3>takeOrder</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">takeOrder</span><wbr><span class="parameters">(<a href="Order.html" title="class in ru.nsu.kozlov">Order</a>&nbsp;order)</span></div>
+<div class="block">Taking order to the queue.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>order</code> - new order.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="giveOrderAway()">
 <h3>giveOrderAway</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Order.html" title="class in ru.nsu.kozlov">Order</a></span>&nbsp;<span class="element-name">giveOrderAway</span>()</div>
+<div class="block">Giving order to baker.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>order.</dd>
+</dl>
 </section>
 </li>
 </ul>
