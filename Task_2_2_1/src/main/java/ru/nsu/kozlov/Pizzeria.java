@@ -26,7 +26,7 @@ public class Pizzeria {
     /**
      * Pizzeria constructor.
      *
-     * @param config path to json config file.
+     * @param config config file.
      */
     public Pizzeria(Configuration config) {
         int warehouseCapacity;
