@@ -33,6 +33,10 @@ public class Pizzeria {
         int[] bakersConfig;
         int[] deliveryMenConfig;
 
+        if (config == null) {
+            throw new NullPointerException();
+        }
+
         warehouseCapacity = config.getWarehouseCapacity();
         bakersConfig = config.getBakers();
         deliveryMenConfig = config.getDeliveryMen();
