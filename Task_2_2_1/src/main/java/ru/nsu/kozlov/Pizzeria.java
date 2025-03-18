@@ -10,12 +10,18 @@ import java.io.IOException;
 public class Pizzeria {
     private Baker[] bakers;
     private DeliveryMan[] deliveryMen;
-    private QueueWithOrders queueWithOrders;
-    private Warehouse warehouse;
+    private final QueueWithOrders queueWithOrders;
+    private final Warehouse warehouse;
     private boolean isOpened;
 
     private int numberOfReceivedPizza;
     private int numberOfCompletedPizza;
+
+    private int numberOfWaitingBakers;
+    private int numberOfWaitingDeliveryMen;
+
+    private boolean couldFinishBakers;
+    private boolean couldFinishDeliveryMen;
 
     /**
      * Pizzeria constructor.
@@ -38,8 +44,8 @@ public class Pizzeria {
             throw new RuntimeException(e);
         }
 
-        queueWithOrders = new QueueWithOrders();
-        warehouse = new Warehouse(warehouseCapacity);
+        queueWithOrders = new QueueWithOrders(this);
+        warehouse = new Warehouse(warehouseCapacity, this);
 
         bakers = new Baker[bakersConfig.length];
         for (int i = 0; i < bakersConfig.length; i++) {
@@ -55,6 +61,9 @@ public class Pizzeria {
 
         numberOfCompletedPizza = numberOfReceivedPizza = 0;
         isOpened = true;
+
+        couldFinishBakers = false;
+        couldFinishDeliveryMen = false;
 
         Order.setZeroId();
     }
@@ -95,21 +104,69 @@ public class Pizzeria {
         return numberOfReceivedPizza;
     }
 
+    public synchronized void increaseNumberOfWaitingBakers() {
+        numberOfWaitingBakers++;
+    }
+
+    public synchronized void decreaseNumberOfWaitingBakers() {
+        numberOfWaitingBakers--;
+    }
+
+    public int getNumberOfWaitingBakers() {
+        return numberOfWaitingBakers;
+    }
+
+    public synchronized void increaseNumberOfWaitingDeliveryMen() {
+        numberOfWaitingDeliveryMen++;
+    }
+
+    public synchronized void decreaseNumberOfWaitingDeliveryMen() {
+        numberOfWaitingDeliveryMen--;
+    }
+
+    public int getNumberOfWaitingDeliveryMen() {
+        return numberOfWaitingDeliveryMen;
+    }
+
+    public boolean couldFinishBakers() {
+        return couldFinishBakers;
+    }
+
+    public boolean couldFinishDeliveryMen() {
+        return couldFinishDeliveryMen;
+    }
+
     /**
      * Closing pizzeria with stopping bakers and deliveryMen after finishing all orders
      * which was in the queue.
      */
-    public void shutdown() {
+    public void shutdown() throws InterruptedException {
         while (numberOfReceivedPizza > this.getNumberOfCompletedPizza()) {
             continue;
         }
 
+        while (bakers.length > this.getNumberOfWaitingBakers()) {
+            continue;
+        }
+        couldFinishBakers = true;
+        synchronized (queueWithOrders) {
+            queueWithOrders.notifyAll();
+        }
         for (Baker baker : bakers) {
-            baker.interrupt();
+            baker.join();
+            System.out.println("baker done");
         }
 
+        while (deliveryMen.length > this.getNumberOfWaitingDeliveryMen()) {
+            continue;
+        }
+        couldFinishDeliveryMen = true;
+        synchronized (warehouse) {
+            warehouse.notifyAll();
+        }
         for (DeliveryMan deliveryMan : deliveryMen) {
-            deliveryMan.interrupt();
+            deliveryMan.join();
+            System.out.println("delivery man done");
         }
 
         System.out.println("Мы обанкротились! :(");

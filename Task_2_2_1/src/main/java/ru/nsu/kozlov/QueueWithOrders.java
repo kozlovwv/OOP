@@ -8,9 +8,11 @@ import java.util.Queue;
  */
 public class QueueWithOrders {
     private final Queue<Order> queue;
+    private final Pizzeria pizzeria;
 
-    public QueueWithOrders() {
+    public QueueWithOrders(Pizzeria pizzeria) {
         this.queue = new LinkedList<>();
+        this.pizzeria = pizzeria;
     }
 
     /**
@@ -36,9 +38,14 @@ public class QueueWithOrders {
     public synchronized Order giveOrderAway() {
         while (queue.isEmpty()) {
             try {
+                pizzeria.increaseNumberOfWaitingBakers();
                 wait();
+                pizzeria.decreaseNumberOfWaitingBakers();
+                if (pizzeria.couldFinishBakers()) {
+                    return null;
+                }
             } catch (InterruptedException e) {
-                System.out.println("Пекарь закончил работу!");
+                System.out.println("Пекарь прерван!");
                 return null;
             }
         }

@@ -8,6 +8,7 @@ import java.util.LinkedList;
  */
 public class Warehouse {
     private final Deque<Order> queue;
+    private final Pizzeria pizzeria;
     private int currentAmountOfPizzas;
     private final int totalAmountOfPizzas;
 
@@ -15,11 +16,13 @@ public class Warehouse {
      * Warehouse's constructor
      *
      * @param totalAmountOfPizzas capacity of warehouse.
+     * @param pizzeria pizzeria.
      */
-    public Warehouse(int totalAmountOfPizzas) {
+    public Warehouse(int totalAmountOfPizzas, Pizzeria pizzeria) {
         this.queue = new LinkedList<>();
         this.currentAmountOfPizzas = 0;
         this.totalAmountOfPizzas = totalAmountOfPizzas;
+        this.pizzeria = pizzeria;
     }
 
     /**
@@ -33,7 +36,7 @@ public class Warehouse {
                 wait();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                System.out.println("Поток прерван");
+                System.out.println("Пекарь прерван!");
             }
         }
 
@@ -56,9 +59,14 @@ public class Warehouse {
     public synchronized Order giveOrderAway(int capacity) {
         while (queue.isEmpty()) {
             try {
+                pizzeria.increaseNumberOfWaitingDeliveryMen();
                 wait();
+                pizzeria.decreaseNumberOfWaitingDeliveryMen();
+                if (pizzeria.couldFinishDeliveryMen()) {
+                    return null;
+                }
             } catch (InterruptedException e) {
-                System.out.println("Курьер закончил работу! ");
+                System.out.println("Курьер прерван!");
                 return null;
             }
         }

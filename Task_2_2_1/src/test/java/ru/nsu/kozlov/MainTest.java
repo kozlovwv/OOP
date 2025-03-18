@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class MainTest {
     @Test
-    void test1() {
+    void test1() throws InterruptedException {
         MyTimer.startTime = System.currentTimeMillis();
 
         Pizzeria pizzeria = new Pizzeria("src/test/resources/Config_For_Test_1.json");
@@ -23,7 +23,7 @@ class MainTest {
     }
 
     @Test
-    void test2() {
+    void test2() throws InterruptedException {
         MyTimer.startTime = System.currentTimeMillis();
 
         Pizzeria pizzeria = new Pizzeria("src/test/resources/Config_For_Test_2.json");
@@ -40,7 +40,7 @@ class MainTest {
     }
 
     @Test
-    void test3() {
+    void test3() throws InterruptedException {
         MyTimer.startTime = System.currentTimeMillis();
 
         Pizzeria pizzeria = new Pizzeria("src/test/resources/Config_For_Test_3.json");
