@@ -26,23 +26,16 @@ public class Pizzeria {
     /**
      * Pizzeria constructor.
      *
-     * @param path path to json config file.
+     * @param config path to json config file.
      */
-    public Pizzeria(String path) {
+    public Pizzeria(Configuration config) {
         int warehouseCapacity;
         int[] bakersConfig;
         int[] deliveryMenConfig;
 
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            File file = new File(path);
-            Configuration config = mapper.readValue(file, Configuration.class);
-            warehouseCapacity = config.getWarehouseCapacity();
-            bakersConfig = config.getBakers();
-            deliveryMenConfig = config.getDeliveryMen();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        warehouseCapacity = config.getWarehouseCapacity();
+        bakersConfig = config.getBakers();
+        deliveryMenConfig = config.getDeliveryMen();
 
         queueWithOrders = new QueueWithOrders(this);
         warehouse = new Warehouse(warehouseCapacity, this);
@@ -141,6 +134,9 @@ public class Pizzeria {
      * which was in the queue.
      */
     public void shutdown() throws InterruptedException {
+
+        isOpened = false;
+
         while (numberOfReceivedPizza > this.getNumberOfCompletedPizza()) {
             continue;
         }
