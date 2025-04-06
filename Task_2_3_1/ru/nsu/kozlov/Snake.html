@@ -76,6 +76,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Snake</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Implementation of snake.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -88,7 +89,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Snake</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">snake's constructor</div>
+</div>
 </div>
 </section>
 </li>
@@ -114,7 +117,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#move(boolean)" class="member-name-link">move</a><wbr>(boolean&nbsp;eatFood)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">move snake body.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDirection(ru.nsu.kozlov.Direction)" class="member-name-link">setDirection</a><wbr>(<a href="Direction.html" title="enum class in ru.nsu.kozlov">Direction</a>&nbsp;direction)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -139,6 +144,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;()">
 <h3>Snake</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Snake</span>()</div>
+<div class="block">snake's constructor</div>
 </section>
 </li>
 </ul>
@@ -171,6 +177,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="move(boolean)">
 <h3>move</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">move</span><wbr><span class="parameters">(boolean&nbsp;eatFood)</span></div>
+<div class="block">move snake body.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>eatFood</code> - if true - just add new element to the snake body,
+                else - add new and remove last one.</dd>
+</dl>
 </section>
 </li>
 <li>
