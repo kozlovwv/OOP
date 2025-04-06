@@ -1,10 +1,12 @@
 package ru.nsu.kozlov;
 
+import java.util.LinkedList;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-import java.util.LinkedList;
-
+/**
+ * Implementation of rendering view.
+ */
 public class View {
     GraphicsContext gc;
 
@@ -12,7 +14,7 @@ public class View {
         this.gc = gc;
     }
 
-    void update(Snake snake, LinkedList<Food> foods, boolean winner, boolean loser) {
+    void update (Snake snake, LinkedList<Food> foods, boolean winner, boolean loser) {
 
         gc.setFill(Color.BLACK);
         gc.fillRect(0,

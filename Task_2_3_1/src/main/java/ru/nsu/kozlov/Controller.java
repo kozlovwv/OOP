@@ -7,6 +7,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+/**
+ * Implementation of controller.
+ */
 public class Controller {
     @FXML
     private Canvas gameCanvas;
@@ -17,6 +20,9 @@ public class Controller {
     private boolean moved = false;
     private boolean isOver;
 
+    /**
+     * initializing controller and making game loop with using timer
+     */
     @FXML
     public void initialize() {
 
@@ -64,10 +70,15 @@ public class Controller {
 
         if (!model.isOppositeDirection(keyCode) && !moved) {
             switch (event.getCode()) {
-                case W, UP:    model.setSnakeDirection(Direction.UP); break;
-                case A, LEFT:  model.setSnakeDirection(Direction.LEFT); break;
-                case S, DOWN:  model.setSnakeDirection(Direction.DOWN); break;
-                case D, RIGHT: model.setSnakeDirection(Direction.RIGHT); break;
+                case W, UP: model.setSnakeDirection(Direction.UP);
+                break;
+                case A, LEFT: model.setSnakeDirection(Direction.LEFT);
+                break;
+                case S, DOWN: model.setSnakeDirection(Direction.DOWN);
+                break;
+                case D, RIGHT: model.setSnakeDirection(Direction.RIGHT);
+                break;
+                default: break;
             }
             moved = true;
         }

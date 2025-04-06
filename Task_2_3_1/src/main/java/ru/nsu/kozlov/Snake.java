@@ -2,10 +2,16 @@ package ru.nsu.kozlov;
 
 import java.util.LinkedList;
 
+/**
+ * Implementation of snake.
+ */
 public class Snake {
     private LinkedList<Point> body;
     private Direction direction;
 
+    /**
+     * snake's constructor
+     */
     public Snake() {
         this.direction = Direction.RIGHT;
         this.body = new LinkedList<>();
@@ -25,6 +31,11 @@ public class Snake {
         return body;
     }
 
+    /**
+     * move snake body.
+     * @param eatFood if true - just add new element to the snake body,
+     *                else - add new and remove last one.
+     */
     public void move(boolean eatFood) {
         Point head = this.getHead();
         Point newHead = switch (this.direction) {

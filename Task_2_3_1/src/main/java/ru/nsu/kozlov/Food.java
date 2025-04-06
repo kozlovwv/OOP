@@ -2,6 +2,9 @@ package ru.nsu.kozlov;
 
 import javafx.scene.paint.Color;
 
+/**
+ * Point with color and value.
+ */
 public class Food extends Point {
 
     private Color color;

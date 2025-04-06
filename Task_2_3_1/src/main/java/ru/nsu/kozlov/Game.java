@@ -1,13 +1,16 @@
 package ru.nsu.kozlov;
 
+import java.io.IOException;
+import java.util.Objects;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.util.Objects;
 
+/**
+ * Main class.
+ */
 public class Game extends Application {
 
     @Override

@@ -6,6 +6,9 @@ import javafx.scene.paint.Color;
 import java.util.LinkedList;
 import java.util.Random;
 
+/**
+ * Implementation of model.
+ */
 public class Model {
     private Snake snake;
     private LinkedList<Food> foods;
@@ -13,6 +16,9 @@ public class Model {
     private boolean loser;
     private Random random;
 
+    /**
+     * model's constructor.
+     */
     public Model() {
         this.winner = false;
         this.loser = false;
@@ -22,6 +28,9 @@ public class Model {
         this.initFood();
     }
 
+    /**
+     * updating model.
+     */
     public void update() {
 
         if (loser || winner) {
@@ -41,8 +50,8 @@ public class Model {
             case DOWN -> new Food(head.getX(), head.getY() + 1);
         };
 
-        if (movedHead.getX() < 0 || movedHead.getX() >= GameConfig.FIELD_WIDTH ||
-            movedHead.getY() < 0 || movedHead.getY() >= GameConfig.FIELD_HEIGHT) {
+        if (movedHead.getX() < 0 || movedHead.getX() >= GameConfig.FIELD_WIDTH
+                || movedHead.getY() < 0 || movedHead.getY() >= GameConfig.FIELD_HEIGHT) {
             loser = true;
             return;
         }
@@ -68,8 +77,8 @@ public class Model {
             Food newFood = new Food(random.nextInt(GameConfig.FIELD_WIDTH),
                                     random.nextInt(GameConfig.FIELD_HEIGHT));
 
-            while ((newFood.getX() == eatenFood.getX() && newFood.getY() == eatenFood.getY()) ||
-                   (snakeBody.contains((Point) newFood))) {
+            while ((newFood.getX() == eatenFood.getX() && newFood.getY() == eatenFood.getY())
+                    || (snakeBody.contains((Point) newFood))) {
                 newFood = new Food(random.nextInt(GameConfig.FIELD_WIDTH),
                                     random.nextInt(GameConfig.FIELD_HEIGHT));
             }
@@ -110,6 +119,11 @@ public class Model {
         return this.snake.getDirection();
     }
 
+    /**
+     * checking for opposite direction.
+     * @param keyCode code of pressed key.
+     * @return true if direction is opposite, false otherwise.
+     */
     public boolean isOppositeDirection(KeyCode keyCode) {
         return switch (keyCode) {
             case W, UP -> this.getSnakeDirection() == Direction.DOWN;

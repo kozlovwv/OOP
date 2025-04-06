@@ -1,5 +1,8 @@
 package ru.nsu.kozlov;
 
+/**
+ * Configuration of the game.
+ */
 public class GameConfig {
     public static final int CELL_SIZE = 20;
     public static final int FIELD_WIDTH = 30;
