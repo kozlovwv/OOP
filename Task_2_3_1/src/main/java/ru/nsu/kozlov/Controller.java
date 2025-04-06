@@ -19,6 +19,7 @@ public class Controller {
     private long lastUpdate = 0;
     private boolean moved = false;
     private boolean isOver;
+    private int maxScore = 0;
 
     /**
      * initializing controller and making game loop with using timer.
@@ -42,11 +43,15 @@ public class Controller {
                             model.getSnake(),
                             model.getFoods(),
                             model.isWinner(),
-                            model.isLoser()
+                            model.isLoser(),
+                            maxScore
                     );
                     lastUpdate = now;
                     moved = false;
                     isOver = model.isOver();
+                    if (model.getSnake().getBody().size() > maxScore) {
+                        maxScore = model.getSnake().getBody().size();
+                    }
                 }
             }
         };

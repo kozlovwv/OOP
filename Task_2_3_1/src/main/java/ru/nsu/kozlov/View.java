@@ -14,7 +14,7 @@ public class View {
         this.gc = gc;
     }
 
-    void update(Snake snake, LinkedList<Food> foods, boolean winner, boolean loser) {
+    void update(Snake snake, LinkedList<Food> foods, boolean winner, boolean loser, int maxScore) {
 
         gc.setFill(Color.BLACK);
         gc.fillRect(0,
@@ -22,33 +22,33 @@ public class View {
                 GameConfig.FIELD_WIDTH * GameConfig.CELL_SIZE,
                 GameConfig.FIELD_HEIGHT * GameConfig.CELL_SIZE);
 
-        if (winner) {
-            gc.setFill(Color.GREEN);
-            gc.fillText("WINNER!",
-                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 10,
-                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE);
-            gc.setFill(Color.WHITE);
-            gc.fillText("Press R to play again!",
-                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 60,
-                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 30);
-            gc.fillText("Press Q to quit the game..",
-                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 70,
-                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 60);
-            return;
-        }
+        if (winner || loser) {
+            if (winner) {
+                gc.setFill(Color.GREEN);
+                gc.fillText("WINNER!",
+                        (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 10,
+                        (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE);
+            } else {
+                gc.setFill(Color.RED);
+                gc.fillText("LOSER!",
+                        (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 10,
+                        (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE);
+            }
 
-        if (loser) {
-            gc.setFill(Color.RED);
-            gc.fillText("LOSER!",
-                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 10,
-                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE);
             gc.setFill(Color.WHITE);
             gc.fillText("Press R to play again!",
                     (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 60,
-                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 30);
+                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 25);
             gc.fillText("Press Q to quit the game..",
                     (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 70,
-                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 60);
+                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 50);
+            gc.fillText("Your score " + String.valueOf(snake.getBody().size()),
+                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 30,
+                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 75);
+            gc.fillText("Best score " + String.valueOf(maxScore),
+                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 30,
+                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 100);
+
             return;
         }
 

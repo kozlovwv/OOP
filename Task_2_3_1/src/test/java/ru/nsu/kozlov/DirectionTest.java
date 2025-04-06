@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class DirectionTest {
     @Test
-    void test1() {
+    void test() {
         Direction direction;
         direction = Direction.UP;
         direction = Direction.RIGHT;
