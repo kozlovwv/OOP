@@ -1,10 +1,9 @@
 package ru.nsu.kozlov;
 
-import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Color;
-
 import java.util.LinkedList;
 import java.util.Random;
+import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
 
 /**
  * Implementation of model.
@@ -121,6 +120,7 @@ public class Model {
 
     /**
      * checking for opposite direction.
+     *
      * @param keyCode code of pressed key.
      * @return true if direction is opposite, false otherwise.
      */

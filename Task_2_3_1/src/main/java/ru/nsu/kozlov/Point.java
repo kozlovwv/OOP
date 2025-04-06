@@ -4,19 +4,19 @@ package ru.nsu.kozlov;
  * Point of the game field.
  */
 public class Point {
-    private final int xCoor;
-    private final int yCoor;
+    private final int coordinateX;
+    private final int coordinateY;
 
     public Point(int x, int y) {
-        this.xCoor = x;
-        this.yCoor = y;
+        this.coordinateX = x;
+        this.coordinateY = y;
     }
 
     public int getX() {
-        return xCoor;
+        return coordinateX;
     }
 
     public int getY() {
-        return yCoor;
+        return coordinateY;
     }
 }

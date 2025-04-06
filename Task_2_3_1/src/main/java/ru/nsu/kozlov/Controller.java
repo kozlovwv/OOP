@@ -21,7 +21,7 @@ public class Controller {
     private boolean isOver;
 
     /**
-     * initializing controller and making game loop with using timer
+     * initializing controller and making game loop with using timer.
      */
     @FXML
     public void initialize() {

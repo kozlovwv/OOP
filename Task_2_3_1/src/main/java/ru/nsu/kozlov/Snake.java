@@ -10,7 +10,7 @@ public class Snake {
     private Direction direction;
 
     /**
-     * snake's constructor
+     * snake's constructor.
      */
     public Snake() {
         this.direction = Direction.RIGHT;
@@ -33,6 +33,7 @@ public class Snake {
 
     /**
      * move snake body.
+     *
      * @param eatFood if true - just add new element to the snake body,
      *                else - add new and remove last one.
      */

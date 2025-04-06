@@ -10,11 +10,11 @@ import javafx.scene.paint.Color;
 public class View {
     GraphicsContext gc;
 
-    public View (GraphicsContext gc) {
+    public View(GraphicsContext gc) {
         this.gc = gc;
     }
 
-    void update (Snake snake, LinkedList<Food> foods, boolean winner, boolean loser) {
+    void update(Snake snake, LinkedList<Food> foods, boolean winner, boolean loser) {
 
         gc.setFill(Color.BLACK);
         gc.fillRect(0,
