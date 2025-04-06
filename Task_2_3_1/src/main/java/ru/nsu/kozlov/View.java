@@ -1,0 +1,71 @@
+package ru.nsu.kozlov;
+
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+
+import java.util.LinkedList;
+
+public class View {
+    GraphicsContext gc;
+
+    public View (GraphicsContext gc) {
+        this.gc = gc;
+    }
+
+    void update(Snake snake, LinkedList<Food> foods, boolean winner, boolean loser) {
+
+        gc.setFill(Color.BLACK);
+        gc.fillRect(0,
+                0,
+                GameConfig.FIELD_WIDTH * GameConfig.CELL_SIZE,
+                GameConfig.FIELD_HEIGHT * GameConfig.CELL_SIZE);
+
+        if (winner) {
+            gc.setFill(Color.GREEN);
+            gc.fillText("WINNER!",
+                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 10,
+                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE);
+            gc.setFill(Color.WHITE);
+            gc.fillText("Press R to play again!",
+                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 60,
+                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 30);
+            gc.fillText("Press Q to quit the game..",
+                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 70,
+                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 60);
+            return;
+        }
+
+        if (loser) {
+            gc.setFill(Color.RED);
+            gc.fillText("LOSER!",
+                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 10,
+                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE);
+            gc.setFill(Color.WHITE);
+            gc.fillText("Press R to play again!",
+                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 60,
+                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 30);
+            gc.fillText("Press Q to quit the game..",
+                    (GameConfig.FIELD_WIDTH / 2) * GameConfig.CELL_SIZE - 70,
+                    (GameConfig.FIELD_HEIGHT / 2) * GameConfig.CELL_SIZE + 60);
+            return;
+        }
+
+        gc.setFill(Color.GREEN);
+
+        LinkedList<Point> body = snake.getBody();
+        for (Point point : body) {
+            gc.fillRect(point.getX() * GameConfig.CELL_SIZE,
+                        point.getY() * GameConfig.CELL_SIZE,
+                        GameConfig.CELL_SIZE,
+                        GameConfig.CELL_SIZE);
+        }
+
+        for (Food food : foods) {
+            gc.setFill(food.getColor());
+            gc.fillRect(food.getX() * GameConfig.CELL_SIZE,
+                        food.getY() * GameConfig.CELL_SIZE,
+                        GameConfig.CELL_SIZE,
+                        GameConfig.CELL_SIZE);
+        }
+    }
+}
