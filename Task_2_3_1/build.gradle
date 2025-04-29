@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+group = 'ru.nsu.kozlov'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Добавляем зависимости JavaFX
+    implementation 'org.openjfx:javafx-controls:21'
+    implementation 'org.openjfx:javafx-fxml:21'
+
+    // Если вам нужны другие модули JavaFX, добавьте их здесь
+    // implementation 'org.openjfx:javafx-base:17.0.1'
+    // implementation 'org.openjfx:javafx-graphics:17.0.1'
+    // implementation 'org.openjfx:javafx-media:17.0.1'
+    // implementation 'org.openjfx:javafx-web:17.0.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
+javafx {
+    version = "21"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+application {
+    mainClass = 'ru.nsu.kozlov.Game'
+}
