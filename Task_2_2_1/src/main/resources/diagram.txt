@@ -1,0 +1,98 @@
+@startuml
+class Baker {
+        - int cookTime
+        - QueueWithOrders queueWithOrders
+        - Warehouse warehouse
+        - Order order
+        + Baker(QueueWithOrders, Warehouse, int)
+        + run()
+    }
+
+    class Configuration {
+        - int warehouseCapacity
+        - int[] bakers
+        - int[] deliveryMen
+        + getWarehouseCapacity(): int
+        + getBakers(): int[]
+        + getDeliveryMen(): int[]
+    }
+
+    class DeliveryMan {
+        - int deliveryTime
+        - int capacity
+        - Warehouse warehouse
+        - Order order
+        + DeliveryMan(Warehouse, int)
+        + run()
+    }
+
+    class MyTimer {
+        + static long startTime
+        + static double getTime()
+    }
+
+    class Order {
+        - int pizzaAmount
+        - int id
+        - OrderState orderState
+        - static int currentMaxID
+        + Order(int)
+        + Order(int, int, OrderState)
+        + getPizzaAmount(): int
+        + setPizzaAmount(int)
+        + getId(): int
+        + getOrderState(): OrderState
+        + setOrderState(OrderState)
+    }
+
+    enum OrderState {
+        IN_QUEUE
+        BEING_PREPARED
+        IN_WAREHOUSE
+        BEING_DELIVERED
+        DELIVERED
+    }
+
+    class Pizzeria {
+        - Baker[] bakers
+        - DeliveryMan[] deliveryMen
+        - QueueWithOrders queueWithOrders
+        - Warehouse warehouse
+        - boolean isOpened
+        + Pizzeria(String)
+        + open()
+        + close()
+        + addOrder(Order)
+    }
+
+    class QueueWithOrders {
+        - Queue<Order> queue
+        + QueueWithOrders()
+        + takeOrder(Order)
+        + giveOrderAway(): Order
+    }
+
+    class Warehouse {
+        - Deque<Order> queue
+        - int currentAmountOfPizzas
+        - int totalAmountOfPizzas
+        + Warehouse(int)
+        + takeOrder(Order)
+        + giveOrderAway(int): Order
+    }
+
+Pizzeria --> Baker : создает
+Pizzeria --> DeliveryMan : создает
+Pizzeria --> QueueWithOrders : использует
+Pizzeria --> Configuration : использует
+Pizzeria --> Warehouse : использует
+Baker --> QueueWithOrders : использует
+Baker --> Warehouse : использует
+DeliveryMan --> Warehouse : использует
+QueueWithOrders --> Order : содержит
+Warehouse --> Order : содержит
+Order --> OrderState : использует
+QueueWithOrders --> MyTimer : использует
+Warehouse --> MyTimer : использует
+DeliveryMan --> MyTimer : использует
+@enduml

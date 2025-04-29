@@ -1,0 +1,13 @@
+{
+  "warehouseCapacity": 30,
+  "bakers" : [
+    1,
+    3,
+    5,
+    2
+  ],
+  "deliveryMen": [
+    10,
+    5
+  ]
+}
