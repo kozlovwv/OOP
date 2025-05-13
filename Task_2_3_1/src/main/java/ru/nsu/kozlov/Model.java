@@ -73,13 +73,41 @@ public class Model {
         if (foodCollision) {
             foods.remove(eatenFood);
 
-            Food newFood = new Food(random.nextInt(GameConfig.FIELD_WIDTH),
-                                    random.nextInt(GameConfig.FIELD_HEIGHT));
+            Food newFood;
 
-            while ((newFood.getX() == eatenFood.getX() && newFood.getY() == eatenFood.getY())
-                    || (snakeBody.contains((Point) newFood))) {
+            boolean fl = false;
+
+            while (true) {
                 newFood = new Food(random.nextInt(GameConfig.FIELD_WIDTH),
-                                    random.nextInt(GameConfig.FIELD_HEIGHT));
+                        random.nextInt(GameConfig.FIELD_HEIGHT));
+
+                if (newFood.getX() == eatenFood.getX() && newFood.getY() == eatenFood.getY()) {
+                    continue;
+                }
+
+                for (Food food : foods) {
+                    if (food.getX() == newFood.getX() && food.getY() == newFood.getY()) {
+                        fl = true;
+                    }
+                }
+
+                if (fl) {
+                    fl = false;
+                    continue;
+                }
+
+                for (Point point : snakeBody) {
+                    if (point.getX() == newFood.getX() && point.getY() == newFood.getY()) {
+                        fl = true;
+                    }
+                }
+
+                if (fl) {
+                    fl = false;
+                    continue;
+                }
+
+                break;
             }
 
             newFood.setColor(Color.RED);
