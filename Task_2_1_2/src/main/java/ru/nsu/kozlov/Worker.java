@@ -6,10 +6,17 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+/**
+ * Client implementation.
+ */
 public class Worker {
     private static final String HOST = "localhost";
     private static final int PORT = 11111;
 
+    /**
+     * client starting.
+     * @param args args.
+     */
     public static void main(String[] args) {
         try (Socket socket = new Socket(HOST, PORT)) {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -31,12 +38,25 @@ public class Worker {
         }
     }
 
+    /**
+     * is number prime.
+     * @param number number.
+     * @return is number prime.
+     */
     public static boolean isPrime(int number) {
-        if (number <= 1) return false;
-        if (number == 2) return true;
-        if (number % 2 == 0) return false;
+        if (number <= 1) {
+            return false;
+        }
+        if (number == 2) {
+            return true;
+        }
+        if (number % 2 == 0) {
+            return false;
+        }
         for (int i = 3; i <= Math.sqrt(number); i += 2) {
-            if (number % i == 0) return false;
+            if (number % i == 0) {
+                return false;
+            }
         }
         return true;
     }

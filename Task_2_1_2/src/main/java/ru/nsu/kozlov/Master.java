@@ -11,6 +11,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * Server implementation.
+ */
 public class Master {
     private static final int PORT = 11111;
     private static final int TIMEOUT_MS = 2000;
@@ -20,6 +23,10 @@ public class Master {
     private static final Queue<WorkerHandler> workers = new ConcurrentLinkedQueue<>();
     private static final ExecutorService taskPool = Executors.newCachedThreadPool();
 
+    /**
+     * starting server.
+     * @param args args
+     */
     public static void main(String[] args) {
         startWorkerListener();
         waitForAtLeastOneWorker();
@@ -56,6 +63,7 @@ public class Master {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ignored) {
+                System.err.println("...");
             }
         }
         System.out.println("At least one worker is connected. Starting task distribution...");
@@ -70,7 +78,9 @@ public class Master {
 
         try {
             for (Future<Boolean> future : futures) {
-                if (future.get()) return true;
+                if (future.get()) {
+                    return true;
+                }
             }
         } catch (Exception e) {
             System.err.println("Task execution error: " + e.getMessage());
@@ -82,7 +92,9 @@ public class Master {
     private static boolean tryTaskWithRetries(int number) {
         for (int attempt = 0; attempt < MAX_RETRIES; attempt++) {
             for (WorkerHandler worker : workers) {
-                if (!worker.isAlive()) continue;
+                if (!worker.isAlive()) {
+                    continue;
+                }
                 try {
                     return worker.sendTask(number);
                 } catch (IOException e) {
@@ -93,6 +105,7 @@ public class Master {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ignored) {
+                System.err.println("...");
             }
         }
 
