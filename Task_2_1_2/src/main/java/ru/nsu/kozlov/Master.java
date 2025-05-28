@@ -15,7 +15,7 @@ public class Master {
     private static final int PORT = 11111;
     private static final int TIMEOUT_MS = 2000;
     private static final int MAX_RETRIES = 3;
-    private static final int[] INPUT = LargePrimesArray.PRIMES;
+    private static final int[] INPUT = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
     private static final Queue<WorkerHandler> workers = new ConcurrentLinkedQueue<>();
     private static final ExecutorService taskPool = Executors.newCachedThreadPool();
