@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.kozlov","l":"LargePrimesArray"},{"p":"ru.nsu.kozlov","l":"Master"},{"p":"ru.nsu.kozlov","l":"Worker"},{"p":"ru.nsu.kozlov","l":"WorkerHandler"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.kozlov","l":"Master"},{"p":"ru.nsu.kozlov","l":"Worker"},{"p":"ru.nsu.kozlov","l":"WorkerHandler"}];updateSearchResults();
