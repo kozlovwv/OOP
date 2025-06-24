@@ -70,10 +70,38 @@ public class Master {
     }
 
     private static boolean distributeTasks() {
+        Queue<Integer> remainingTasks = new ConcurrentLinkedQueue<>();
+        for (int number : INPUT) {
+            remainingTasks.add(number);
+        }
+
         List<Future<Boolean>> futures = new ArrayList<>();
 
-        for (int number : Master.INPUT) {
-            futures.add(taskPool.submit(() -> tryTaskWithRetries(number)));
+        while (!remainingTasks.isEmpty()) {
+            int number = remainingTasks.poll();
+            futures.add(taskPool.submit(() -> {
+                boolean success = false;
+                while (!success) {
+                    for (WorkerHandler worker : workers) {
+                        if (!worker.isAlive()) continue;
+
+                        try {
+                            boolean result = worker.sendTask(number);
+                            success = true;
+                            return result;
+                        } catch (IOException e) {
+                            System.err.println("Failed to send task to worker: " + e.getMessage());
+                        }
+                    }
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException ignored) {
+                        System.err.println("Retry sleep interrupted");
+                    }
+                }
+                return false;
+            }));
         }
 
         try {
@@ -83,33 +111,9 @@ public class Master {
                 }
             }
         } catch (Exception e) {
-            System.err.println("Task execution error: " + e.getMessage());
+            System.err.println("Error during task collection: " + e.getMessage());
         }
 
-        return false;
-    }
-
-    private static boolean tryTaskWithRetries(int number) {
-        for (int attempt = 0; attempt < MAX_RETRIES; attempt++) {
-            for (WorkerHandler worker : workers) {
-                if (!worker.isAlive()) {
-                    continue;
-                }
-                try {
-                    return worker.sendTask(number);
-                } catch (IOException e) {
-                    System.err.println("Task failed on worker: " + e.getMessage());
-                }
-            }
-
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException ignored) {
-                System.err.println("...");
-            }
-        }
-
-        System.err.println("Failed to process number after retries: " + number);
         return false;
     }
 

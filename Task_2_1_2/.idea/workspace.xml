@@ -34,20 +34,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.MasterTest.executor": "Run",
-    "Gradle.Task_2_1_2 [:ru.nsu.kozlov.Master.main()].executor": "Run",
-    "Gradle.Tests in 'Task_2_1_2.test'.executor": "Run",
-    "Gradle.WorkerHandlerTest.executor": "Run",
-    "Gradle.WorkerTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "Task__2__1__2",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.MasterTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Task_2_1_2 [:ru.nsu.kozlov.Master.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Tests in 'Task_2_1_2.test'.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.WorkerHandlerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.WorkerTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Task__2__1__2&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
